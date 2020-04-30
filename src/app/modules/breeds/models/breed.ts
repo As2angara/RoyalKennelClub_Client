@@ -11,4 +11,5 @@ export interface Breed {
   breed_group: string;
   height: Measurement;
   weight: Measurement;
+  pic_url: string;
 }

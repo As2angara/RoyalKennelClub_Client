@@ -1,17 +1,18 @@
 <section>
-  <h1>List of Breeds:</h1>
+<!--  <h1>List of Breeds:</h1>-->
 
-  <div *ngIf="(breeds$ | async) as list">
-    {{list.length}}
-  </div>
+
+
   <div *ngFor = "let breed of breeds$ | async" id = "breed-card">
-    <p>{{breed.name}}</p>
-    <p>{{breed.breed_group}}</p>
-    <p>{{breed.id}}</p>
-  </div>
-
-  <div *ngFor="let pic of breedPics$ | async">
-    {{pic.pic_url}}
+    <div *ngFor="let pic of breedPics$  | async">
+      <div *ngIf="pic.id === breed.id" >
+        <img src="{{pic.pic_url}}" alt="">
+        <p>{{breed.name}}</p>
+        <p>{{breed.breed_group}}</p>
+        <p>{{breed.id}}</p>
+        <p>{{breed.pic_url}}</p>
+      </div>
+    </div>
   </div>
 
 </section>

@@ -17,19 +17,23 @@ export class BreedListComponent implements OnInit {
   num: number[];
 
   constructor(private breeds: BreedServiceService) {
+
     this.num = [1, 71, 161, 149, 121, 17, 115, 50, 58, 113, 12, 42, 31, 2, 30, 210, 212, 55, 4, 24, 51];
 
-    this.breeds$ = breeds.getBreeds().pipe(
-      map(brds => brds.filter( brd => {
+    this.breedPics$ = breeds.getBreedPics();
 
-        // tslint:disable-next-line:prefer-for-of
-        for (let i = 0; i < this.num.length; i++) {
-          if (brd.id === this.num[i]) { return brd; }
+    this.breeds$ = breeds.getBreeds().pipe(
+      map(brds => brds.filter(brd => {
+        for (const n of this.num) {
+          if (n === brd.id) {
+            return brd;
+          }
         }
       }))
+
     );
 
-    this.breedPics$ = breeds.getBreedPics();
+
 
   }
 
