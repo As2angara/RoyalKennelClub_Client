@@ -1,4 +1,5 @@
-import {Measurment} from './measurement';
+import {Measurement} from './measurement';
+
 
 export interface Breed {
   id: number;
@@ -8,6 +9,6 @@ export interface Breed {
   temperament: string;
   bred_for: string;
   breed_group: string;
-  height: Measurment;
-  weight: Measurment;
+  height: Measurement;
+  weight: Measurement;
 }

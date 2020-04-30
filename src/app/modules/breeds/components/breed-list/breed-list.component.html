@@ -10,5 +10,8 @@
     <p>{{breed.id}}</p>
   </div>
 
+  <div *ngFor="let pic of breedPics$ | async">
+    {{pic.pic_url}}
+  </div>
 
 </section>
