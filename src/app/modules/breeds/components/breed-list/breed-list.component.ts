@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {BreedServiceService} from '../../services/breed-service.service';
+import {Breed} from '../../models/breed';
+import {Observable} from 'rxjs';
+import {filter, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-breed-list',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BreedListComponent implements OnInit {
 
-  constructor() { }
+  breeds$: Observable<Breed[]>;
+
+  constructor(private breeds: BreedServiceService) {
+    this.breeds$ = breeds.getBreeds();
+
+  }
 
   ngOnInit() {
   }
+
+
 
 }

@@ -1,1 +1,14 @@
-<p>breed-list works!</p>
+<section>
+  <h1>List of Breeds:</h1>
+
+  <div *ngIf="(breeds$ | async) as list">
+    {{list.length}}
+  </div>
+  <div *ngFor = "let breed of breeds$ | async" id = "breed-card">
+    <p>{{breed.name}}</p>
+    <p>{{breed.breed_group}}</p>
+    <p>{{breed.id}}</p>
+  </div>
+
+
+</section>
