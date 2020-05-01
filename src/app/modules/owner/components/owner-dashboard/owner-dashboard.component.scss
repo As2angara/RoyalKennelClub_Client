@@ -1,0 +1,85 @@
+section {
+  width: calc(100vw - 300px);
+  height: 100vh;
+  overflow: auto;
+
+  padding: 50px 100px;
+}
+
+#profile-title {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 25px;
+  color: #50514fff;
+
+  h1 {
+    font-size: 4rem;
+    font-weight: bolder;
+    margin: 0;
+  }
+}
+
+
+
+#profile-user {
+  display: flex;
+  width: 100%;
+  color: #50514fff;
+  margin-bottom: 25px;
+
+  &__pic {
+    height: 250px;
+    width: 175px;
+    background-color: #50514fff;
+    margin-right: 20px;
+  }
+
+  &__text1, &__text2 {
+    border: 1px solid black;
+    height: 250px;
+    padding: 0 20px;
+    margin-right: 20px;
+
+  }
+
+}
+
+#contestant-card-container {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+#contestant-card {
+  margin: 10px;
+  height: auto;
+  width: 300px;
+  box-shadow: 1px 1px 5px grey;
+  border-radius: 5px;
+  background-color: #fffcffff;
+
+
+  img {
+    height: 200px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+
+  &__inner {
+    padding: 10px 20px 20px;
+
+    h1 {
+      font-size: 1.3rem;
+      color: #247ba0ff;
+      margin-top: 0;
+    }
+
+    p{
+      margin-bottom: 0;
+
+    }
+
+  }
+}
