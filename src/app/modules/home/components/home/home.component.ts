@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  safeURL: SafeResourceUrl;
+
+
+  constructor(private sanitizer: DomSanitizer) {
+    const link = 'RRNYkMa3sQU';
+    const videoUrl = `https://www.youtube.com/embed/${link}`;
+    this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
+  }
 
   ngOnInit() {
   }

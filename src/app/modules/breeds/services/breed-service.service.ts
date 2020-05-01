@@ -20,7 +20,7 @@ export class BreedServiceService {
   }
 
   getBreedPics(): Observable<BreedPic[]> {
-    return this.http.get<BreedPic[]>(this.url2);
+    return this.http.get<BreedPic[]>(this.url3);
   }
 
 }
