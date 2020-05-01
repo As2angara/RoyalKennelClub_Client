@@ -11,6 +11,7 @@ export class BreedServiceService {
 
   private url = 'https://api.thedogapi.com/v1/breeds';
   private url2 = 'http://localhost:8080/breeds';
+  private url3 = 'https://royalkennelclub.herokuapp.com/breeds';
 
   constructor(private http: HttpClient ) { }
 

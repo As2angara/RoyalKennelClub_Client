@@ -1,15 +1,16 @@
 <nav>
 
-<!--  <img src="" alt="">-->
-<!--  change to img later-->
-  <div style = "background-color: red; height: 200px; width: 100%"></div>
+  <div id ="img-cont">
+    <img src="../../assets/images/logo.png" alt="" height="200" width="200">
+  </div>
   <div id ="nav-inner">
-    <a [routerLink]="['/']"><h1>Home</h1></a>
-    <a [routerLink]="['/breeds']" ><h1>Breeds</h1></a>
-    <a [routerLink]="['/owner']" ><h1>Profile</h1></a>
+    <a [routerLink]="['/']" (click) = "chosen('home')"><h1 [ngClass] = "{'chosen': isChosen === 'home'}" >Home</h1></a>
+    <a [routerLink]="['/owner']" (click) = "chosen('profile')"><h1 [ngClass] = "{'chosen': isChosen === 'profile'}" >Profile</h1></a>
+    <a [routerLink]="['/breeds']" (click) = "chosen('breeds')"><h1 [ngClass] = "{'chosen': isChosen === 'breeds'}" >Breeds</h1></a>
+
     <hr>
-    <a [routerLink]="['/']" ><h1>Shows</h1></a>
-    <a [routerLink]="['/']" ><h1>Register</h1></a>
+    <a [routerLink]="['/']" (click) = "chosen('shows')"><h1 [ngClass] = "{'chosen': isChosen === 'shows'}" >Shows</h1></a>
+    <a [routerLink]="['/']" (click) = "chosen('register')"><h1 [ngClass] = "{'chosen': isChosen === 'register'}" >Register</h1></a>
 <!--    <h1>Results</h1>-->
   </div>
 </nav>

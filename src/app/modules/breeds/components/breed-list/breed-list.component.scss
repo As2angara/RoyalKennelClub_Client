@@ -1,22 +1,64 @@
 section {
   height: 100vh;
-  padding: 50px;
+  padding: 50px 0;
+  width: calc(100vw - 300px);
   overflow: auto;
+}
+
+#breeds-title {
+  width: calc(100% - 200px);
+  margin: 0 auto 50px;
+  text-align:left;
+  color: #50514fff;
+
+  h1 {
+    font-size: 4rem;
+    font-weight: bolder;
+    margin: 0;
+  }
+  p{
+    font-size: 1.3rem;
+  }
+
+}
+
+#breed-card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  height: 100vh;
+  width: calc(100% - 50px);
+  margin: auto;
 }
 
 #breed-card {
-  margin: 20px;
-  height: 250px;
-  width: 150px;
+  margin: 10px;
+  height: auto;
+  width: 300px;
   box-shadow: 1px 1px 5px grey;
   border-radius: 5px;
+  background-color: #fffcffff;
 
 
   img {
-    height: 100px;
-    width: 150px;
+    height: 200px;
+    width: 100%;
     border-radius: 5px 5px 0 0;
+  }
+
+  &__inner {
+    padding: 10px 20px 20px;
+
+    h1 {
+      font-size: 1.3rem;
+      color: #247ba0ff;
+      margin-top: 0;
+    }
+
+    p{
+      margin-bottom: 0;
+
+    }
+
   }
 }

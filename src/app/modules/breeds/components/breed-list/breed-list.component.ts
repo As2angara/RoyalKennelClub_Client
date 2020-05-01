@@ -14,7 +14,7 @@ export class BreedListComponent implements OnInit {
 
   breeds$: Observable<Breed[]>;
   breedPics$: Observable<BreedPic[]>;
-  num: number[];
+  num = [];
 
   constructor(private breeds: BreedServiceService) {
 
@@ -38,6 +38,8 @@ export class BreedListComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
   }
 
 

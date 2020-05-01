@@ -1,16 +1,35 @@
 <section>
-<!--  <h1>List of Breeds:</h1>-->
+
+  <div id = "breeds-title">
+    <h1>Dog Breeds</h1>
+    <p>"From the beginning, humans purposefully bred dogs to perform various tasks. Hunting, guarding, and herding
+      are thought to be among the earliest jobs eagerly performed by the animal destined to be called 'man’s best friend'.
+      For thousands of years, humans bred dogs toward the physical and mental traits best suited for the work expected of them.
+      Eventually, there emerged specific breeds of dogs,
+      custom-bred to suit the breeders’ local needs and circumstances"
+    </p>
+    <p> - AKC</p>
+    <p style = "color: red; font-size: 1rem">*NOTE: This application only features 21 out of 170+ AKC recognized breeds</p>
+    <hr>
+  </div>
 
 
 
-  <div *ngFor = "let breed of breeds$ | async" id = "breed-card">
-    <div *ngFor="let pic of breedPics$  | async">
-      <div *ngIf="pic.id === breed.id" >
-        <img src="{{pic.pic_url}}" alt="">
-        <p>{{breed.name}}</p>
-        <p>{{breed.breed_group}}</p>
-        <p>{{breed.id}}</p>
-        <p>{{breed.pic_url}}</p>
+  <div id = "breed-card-container">
+    <div *ngFor = "let breed of breeds$ | async" id = "breed-card">
+      <div *ngFor="let pic of breedPics$  | async">
+        <div *ngIf="pic.id === breed.id" >
+          <img src="{{pic.pic_url}}" alt="">
+
+          <div id = "breed-card__inner">
+            <h1>{{breed.name}}</h1>
+            <p><strong>Group:</strong> {{breed.breed_group}}</p>
+            <p><strong>Temperament:</strong> {{breed.temperament}}</p>
+            <p><strong>Life span:</strong> {{breed.life_span}}</p>
+            <p><strong>Bred for:</strong> {{breed.bred_for}}</p>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
