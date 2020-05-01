@@ -21,11 +21,21 @@
   </div>
   <hr>
   <div id="contestant-card-container">
-    <div id="contestant-card">
+    <div id="contestant-card" *ngFor ="let con of contestants$ | async">
       <img src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13000937/Beagle-On-White-07.jpg" alt="">
       <div id="contestant-card__inner">
-        <h1>text</h1>
-        <p>text</p>
+        <h1>Name: {{con.name}}</h1>
+        <p>Breed: {{con.breed}}</p>
+        <p>Group: {{con.group}}</p>
+        <p *ngIf="con.isMale else female">Gender: Male</p>
+        <p *ngIf="con.isSpecial else class">Rank: Specialty Class</p>
+
+        <ng-template #female>
+          <p>Gender: Female</p>
+        </ng-template>
+        <ng-template #class>
+          <p>Rank: Regular Class</p>
+        </ng-template>
       </div>
     </div>
   </div>

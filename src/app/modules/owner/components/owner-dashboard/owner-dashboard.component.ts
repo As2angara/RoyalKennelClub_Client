@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {OwnerService} from '../../services/owner.service';
+import {Observable} from 'rxjs';
+import {Contestant} from '../../models/contestant';
 
 @Component({
   selector: 'app-owner-dashboard',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OwnerDashboardComponent implements OnInit {
 
-  constructor() { }
+  contestants$: Observable<Contestant[]>;
+
+  constructor(private service: OwnerService) {
+    // Owner Id of 1 is only used in the demo
+    this.contestants$ = this.service.getContestantsByOwnerId(1);
+  }
 
   ngOnInit() {
   }
