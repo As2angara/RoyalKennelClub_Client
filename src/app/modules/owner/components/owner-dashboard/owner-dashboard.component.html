@@ -18,11 +18,17 @@
       <p># registered dogs:</p>
     </div>
 
+
+    <div id = "add-contestant" (click) = "addContestant()">
+      <h2>Add Dog</h2>
+    </div>
+
+
   </div>
   <hr>
   <div id="contestant-card-container">
     <div id="contestant-card" *ngFor ="let con of contestants$ | async">
-      <img src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13000937/Beagle-On-White-07.jpg" alt="">
+      <img src ="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/29112347/Australian-Terrier-on-White-011.jpg" alt="">
       <div id="contestant-card__inner">
         <h1>Name: {{con.name}}</h1>
         <p>Breed: {{con.breed}}</p>
@@ -39,11 +45,7 @@
       </div>
     </div>
 
-    <div id = "add-contestant">
-      <div id = "add-contestant__inner" (click) = "addContestant()">
-        <i class="fas fa-plus"></i>
-      </div>
-    </div>
+
   </div>
 
 </section>

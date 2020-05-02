@@ -19,16 +19,6 @@
       </td>
     </tr>
 
-    <tr>
-      <td>Group:</td>
-      <td>
-        <select formControlName = "dog_group">
-          <option *ngFor =  "let group of dogGroup" [value] = "group">
-            {{group}}
-          </option>
-        </select>
-      </td>
-    </tr>
 
     <tr>
       <td>Gender:</td>
@@ -52,6 +42,3 @@
   </div>
 </form>
 
-<!--<div *ngIf = "(con$ | async) as con">-->
-<!--  {{con.id}}-->
-<!--</div>-->

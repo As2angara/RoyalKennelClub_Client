@@ -6,6 +6,7 @@ import {BreedServiceService} from '../../../breeds/services/breed-service.servic
 import {map} from 'rxjs/operators';
 import {Contestant} from '../../models/contestant';
 import {OwnerService} from '../../services/owner.service';
+import {MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-add-contestant',
@@ -16,14 +17,13 @@ export class AddContestantComponent implements OnInit {
 
   addForm: FormGroup;
   breeds$: Observable<Breed[]>;
-  con$: Observable<Contestant>;
-  dogGroup = [];
   contestant = {} as Contestant;
 
 
   constructor(private breeds: BreedServiceService,
               private ownerService: OwnerService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private dialog: MatDialogRef<AddContestantComponent>) {
     const num = [1, 71, 161, 149, 121, 17, 115, 50, 58, 113, 12, 42, 31, 2, 30, 210, 212, 55, 4, 24, 51];
 
     this.breeds$ = breeds.getBreeds().pipe(
@@ -36,12 +36,10 @@ export class AddContestantComponent implements OnInit {
       }))
     );
 
-    this.dogGroup = ['Toy', 'Terrier', 'Herding', 'Sporting', 'Non-Sporting', 'Hound', 'Working'];
 
     this.addForm =  this.fb.group({
       name: [''],
       breed: ['Affenpinscher'],
-      dog_group: ['Toy'],
       gender: ['male'],
       rank: ['regular']
     });
@@ -55,9 +53,8 @@ export class AddContestantComponent implements OnInit {
     // retrieve contestant name
     this.contestant.name = this.addForm.get('name').value;
 
-    // retrieve contestant breed and dog_group
+    // retrieve contestant breed
     this.contestant.breed = this.addForm.get('breed').value;
-    this.contestant.group = this.addForm.get('dog_group').value;
 
     // retrieve contestant gender and rank
     if (this.addForm.get('gender').value === 'male') {
@@ -66,13 +63,16 @@ export class AddContestantComponent implements OnInit {
       this.contestant.isMale = false;
     }
 
-    if (this.addForm.get('dog_group').value === 'regular') {
+    if (this.addForm.get('rank').value === 'regular') {
       this.contestant.isSpecial = false;
     } else {
       this.contestant.isSpecial = true;
     }
 
     this.ownerService.addContestant(this.contestant).subscribe();
+
+    window.location.reload();
+    this.dialog.close();
 
   }
 

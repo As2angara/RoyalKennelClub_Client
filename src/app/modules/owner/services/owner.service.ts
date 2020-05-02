@@ -26,7 +26,7 @@ export class OwnerService {
       name: contestant.name,
       ownerId: 1,
       breed: contestant.breed,
-      group: contestant.group,
+      group: '',
       isMale: contestant.isMale,
       isSpecial: contestant.isSpecial
     };

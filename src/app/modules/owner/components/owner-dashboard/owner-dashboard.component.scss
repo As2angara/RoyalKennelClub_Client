@@ -3,7 +3,7 @@ section {
   height: 100vh;
   overflow: auto;
 
-  padding: 50px 100px;
+  padding: 50px 75px;
 }
 
 #profile-title {
@@ -86,33 +86,26 @@ section {
 
 #add-contestant {
 
-  height: auto;
-  width: 300px;
+  height: 75px;
+  width: auto;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 0 10px;
+  padding: 20px;
+  background-color: #50514fff;
+  cursor: pointer;
 
-  &__inner {
-    height: 75px;
-    width: 75px;
-    border-radius: 50%;
-    background-color: #50514fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    i {
-      color: #fffcffff;
-      transform: scale(2);
-    }
-
-    &:hover {
-      background-color: #247ba0ff;
-    }
-
+  h2 {
+    color: #fffcffff;
   }
+
+
+  &:hover {
+    background-color: #247ba0ff;
+  }
+
+
 
 }

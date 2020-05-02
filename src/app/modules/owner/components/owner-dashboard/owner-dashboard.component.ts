@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import {Contestant} from '../../models/contestant';
 import {MatDialog} from '@angular/material';
 import {AddContestantComponent} from '../add-contestant/add-contestant.component';
+import {BreedServiceService} from '../../../breeds/services/breed-service.service';
+import {BreedPic} from '../../../breeds/models/breedpic';
 
 @Component({
   selector: 'app-owner-dashboard',
@@ -17,10 +19,11 @@ export class OwnerDashboardComponent implements OnInit {
   constructor(private service: OwnerService, public dialog: MatDialog) {
     // Owner Id of 1 is only used in the demo
     this.contestants$ = this.service.getContestantsByOwnerId(1);
+
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
 
   addContestant() {
     this.dialog.open(AddContestantComponent, {
