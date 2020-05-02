@@ -69,11 +69,12 @@ section {
 
   &__inner {
     padding: 10px 20px 20px;
+    width: 300px;
 
     h1 {
       font-size: 1.3rem;
       color: #247ba0ff;
-      margin-top: 0;
+      margin: 0;
     }
 
     p{
@@ -82,6 +83,36 @@ section {
     }
 
   }
+
+}
+
+#contestant-card__title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  div {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    color: #50514fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+
+    &:hover {
+      background-color: #50514fff;
+      color: #fff;
+    }
+  }
+
 }
 
 #add-contestant {
