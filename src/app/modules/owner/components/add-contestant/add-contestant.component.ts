@@ -24,18 +24,9 @@ export class AddContestantComponent implements OnInit {
               private ownerService: OwnerService,
               private fb: FormBuilder,
               private dialog: MatDialogRef<AddContestantComponent>) {
-    const num = [1, 71, 161, 149, 121, 17, 115, 50, 58, 113, 12, 42, 31, 2, 30, 210, 212, 55, 4, 24, 51];
 
-    this.breeds$ = breeds.getBreeds().pipe(
-      map(brds => brds.filter(brd => {
-        for (const n of num) {
-          if (n === brd.id) {
-            return brd;
-          }
-        }
-      }))
-    );
 
+    this.breeds$ = breeds.getBreeds();
 
     this.addForm =  this.fb.group({
       name: [''],

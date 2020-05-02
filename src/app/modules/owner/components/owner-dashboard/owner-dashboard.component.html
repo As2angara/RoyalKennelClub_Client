@@ -36,11 +36,11 @@
             <i class="fas fa-ellipsis-v"></i>
           </div>
           <mat-menu #menu="matMenu" xPosition="before">
-            <button mat-menu-item>
+            <button mat-menu-item (click) = "editContestant(con)">
               <mat-icon color="primary">create</mat-icon>
               <span>Edit</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click) = "deleteContestant(con)">
               <mat-icon color="warn">delete</mat-icon>
               <span>Delete</span>
             </button>

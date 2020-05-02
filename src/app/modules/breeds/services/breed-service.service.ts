@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Breed} from '../models/breed';
 import {BreedPic} from '../models/breedpic';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,17 @@ export class BreedServiceService {
   constructor(private http: HttpClient ) { }
 
   getBreeds(): Observable<Breed[]> {
-    return this.http.get<Breed[]>(this.url);
+    const num = [1, 71, 161, 149, 121, 17, 115, 50, 58, 113, 12, 42, 31, 2, 30, 210, 212, 55, 4, 24, 51];
+
+    return this.http.get<Breed[]>(this.url).pipe(
+      map(brds => brds.filter(brd => {
+        for (const n of num) {
+          if (n === brd.id) {
+            return brd;
+          }
+        }
+      }))
+    );
   }
 
   getBreedPics(): Observable<BreedPic[]> {

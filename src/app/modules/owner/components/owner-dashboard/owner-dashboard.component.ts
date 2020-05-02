@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material';
 import {AddContestantComponent} from '../add-contestant/add-contestant.component';
 import {BreedServiceService} from '../../../breeds/services/breed-service.service';
 import {BreedPic} from '../../../breeds/models/breedpic';
+import {EditContestantComponent} from '../edit-contestant/edit-contestant.component';
 
 @Component({
   selector: 'app-owner-dashboard',
@@ -31,6 +32,16 @@ export class OwnerDashboardComponent implements OnInit {
       minHeight: '700px',
       maxHeight: '100vh',
       maxWidth: '100vw'
+    });
+  }
+
+  editContestant(con) {
+    this.dialog.open(EditContestantComponent, {
+      minWidth: '500px',
+      minHeight: '700px',
+      maxHeight: '100vh',
+      maxWidth: '100vw',
+      data: con
     });
   }
 
