@@ -3,6 +3,7 @@ import {OwnerService} from '../../services/owner.service';
 import {Observable} from 'rxjs';
 import {Contestant} from '../../models/contestant';
 import {MatDialog} from '@angular/material';
+import {AddContestantComponent} from '../add-contestant/add-contestant.component';
 
 @Component({
   selector: 'app-owner-dashboard',
@@ -22,7 +23,12 @@ export class OwnerDashboardComponent implements OnInit {
   }
 
   addContestant() {
-    // this.dialog.open();
+    this.dialog.open(AddContestantComponent, {
+      minWidth: '500px',
+      minHeight: '700px',
+      maxHeight: '100vh',
+      maxWidth: '100vw'
+    });
   }
 
 }

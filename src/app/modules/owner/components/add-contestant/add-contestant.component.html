@@ -1,1 +1,57 @@
-<p>add-contestant works!</p>
+<h1>Add a Dog Contestant</h1>
+<hr>
+<form (ngSubmit)="onAddContestant()" [formGroup]="addForm" >
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td>
+          <input type="text" formControlName="name">
+      </td>
+    </tr>
+    <tr>
+      <td>Breed:</td>
+      <td>
+        <select formControlName = "breed">
+          <option *ngFor =  "let breed of breeds$ | async" [value] = "breed.name">
+            {{breed.name}}
+          </option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Group:</td>
+      <td>
+        <select formControlName = "dog_group">
+          <option *ngFor =  "let group of dogGroup" [value] = "group">
+            {{group}}
+          </option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Gender:</td>
+      <td>
+        <label>Male</label><input type="radio" value="male" formControlName="gender"><br>
+        <label>Female</label><input type="radio" value="female" formControlName="gender">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Rank:</td>
+      <td>
+        <label>Regular</label><input type="radio" value="regular" formControlName="rank"><br>
+        <label>Specialty</label><input type="radio" value="specialty" formControlName="rank">
+      </td>
+    </tr>
+  </table>
+  <hr>
+  <div class = "align-center">
+    <button type="submit">Add</button>
+  </div>
+</form>
+
+<!--<div *ngIf = "(con$ | async) as con">-->
+<!--  {{con.id}}-->
+<!--</div>-->
