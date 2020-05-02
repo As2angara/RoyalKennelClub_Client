@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {OwnerService} from '../../services/owner.service';
 import {Observable} from 'rxjs';
 import {Contestant} from '../../models/contestant';
 import {MatDialog} from '@angular/material';
 import {AddContestantComponent} from '../add-contestant/add-contestant.component';
-import {BreedServiceService} from '../../../breeds/services/breed-service.service';
-import {BreedPic} from '../../../breeds/models/breedpic';
 import {EditContestantComponent} from '../edit-contestant/edit-contestant.component';
 
 @Component({
   selector: 'app-owner-dashboard',
   templateUrl: './owner-dashboard.component.html',
-  styleUrls: ['./owner-dashboard.component.scss']
+  styleUrls: ['./owner-dashboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OwnerDashboardComponent implements OnInit {
 

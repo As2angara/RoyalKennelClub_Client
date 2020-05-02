@@ -10,7 +10,7 @@ import {map} from 'rxjs/operators';
 export class OwnerService {
 
   private url = 'https://royalkennelclub.herokuapp.com/contestants/owner/';
-  private url2 = 'https://royalkennelclub.herokuapp.com/contestants/'
+  private url2 = 'https://royalkennelclub.herokuapp.com/contestants/';
 
   constructor(private http: HttpClient) { }
 
@@ -20,8 +20,6 @@ export class OwnerService {
   }
 
   addContestant(contestant: Contestant): Observable<Contestant> {
-
-
     const data = {
       name: contestant.name,
       ownerId: 1,
@@ -34,5 +32,20 @@ export class OwnerService {
 
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     return this.http.post<Contestant>(this.url2, data, config);
+  }
+
+  editContestant(contestant: Contestant): Observable<Contestant> {
+    const data = {
+      name: contestant.name,
+      ownerId: 1,
+      breed: contestant.breed,
+      group: '',
+      isMale: contestant.isMale,
+      isSpecial: contestant.isSpecial
+    };
+
+
+    const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+    return this.http.put<Contestant>(`${this.url2}${contestant.id}`, data, config);
   }
 }
