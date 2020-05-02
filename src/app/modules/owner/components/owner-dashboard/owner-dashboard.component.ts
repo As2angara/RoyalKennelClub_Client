@@ -44,4 +44,8 @@ export class OwnerDashboardComponent implements OnInit {
     });
   }
 
+  deleteContestant(con) {
+    this.service.deleteContestant(con.id).subscribe();
+  }
+
 }

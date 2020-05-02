@@ -48,4 +48,8 @@ export class OwnerService {
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     return this.http.put<Contestant>(`${this.url2}${contestant.id}`, data, config);
   }
+
+  deleteContestant(id: number): Observable<Contestant> {
+    return this.http.delete<Contestant>(`${this.url2}${id}`);
+  }
 }
