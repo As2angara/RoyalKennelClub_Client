@@ -14,7 +14,12 @@ const routes: Routes = [
   {
     path: 'owner',
     loadChildren: () => import('./modules/owner/owner.module').then(m => m.OwnerModule)
+  },
+  {
+    path: 'events',
+    loadChildren: () => import('./modules/events/events.module').then(m => m.EventsModule)
   }
+
 ];
 
 @NgModule({

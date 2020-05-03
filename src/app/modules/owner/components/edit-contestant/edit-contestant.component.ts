@@ -65,13 +65,14 @@ export class EditContestantComponent implements OnInit {
     // retrieve contestant breed
     this.contestantQ.breed = this.editForm.get('breed').value;
 
-    // retrieve contestant gender and rank
+    // retrieve contestant gender
     if (this.editForm.get('gender').value === 'male') {
       this.contestantQ.isMale = true;
     } else {
       this.contestantQ.isMale = false;
     }
 
+    // retrieve contestant rank
     if (this.editForm.get('rank').value === 'regular') {
       this.contestantQ.isSpecial = false;
     } else {
