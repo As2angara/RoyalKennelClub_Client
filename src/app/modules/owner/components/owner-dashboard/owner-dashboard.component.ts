@@ -5,6 +5,7 @@ import {Contestant} from '../../models/contestant';
 import {MatDialog} from '@angular/material';
 import {AddContestantComponent} from '../add-contestant/add-contestant.component';
 import {EditContestantComponent} from '../edit-contestant/edit-contestant.component';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-owner-dashboard',
@@ -42,10 +43,14 @@ export class OwnerDashboardComponent implements OnInit {
       maxWidth: '100vw',
       data: con
     });
+
+
   }
 
   deleteContestant(con) {
     this.service.deleteContestant(con.id).subscribe();
+
+    window.location.reload();
   }
 
 }

@@ -82,6 +82,10 @@ export class EditContestantComponent implements OnInit {
 
     this.ownerService.editContestant(this.contestantQ).subscribe();
 
+    this.dialog.afterClosed().subscribe(result => {
+      window.location.reload();
+    });
+
     this.dialog.close();
 
   }
