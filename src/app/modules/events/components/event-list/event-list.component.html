@@ -1,1 +1,45 @@
-<p>event-list works!</p>
+<section>
+  <div id ="event-title">
+    <h1>Events</h1>
+    <hr>
+  </div>
+
+  <div id = "event-card-container">
+    <div id = "event-card-container__inner">
+      <div *ngFor = "let event of events$ | async" id = "event-card">
+        <img src="../../../../../assets/images/events/event_image_{{event.id}}.jpg" alt="">
+
+        <div id = "event-card__inner">
+          <h1>{{event.name}}</h1>
+          <h4>{{event.venue}} - {{event.location}}</h4>
+          <div *ngFor = "let show of shows$ | async">
+            <div *ngIf = "event.id === show.eventId">
+              <h5> {{show.type}} - {{show.date | date: 'mediumDate'}}</h5>
+            </div>
+          </div>
+
+
+          <div id = "btn-container">
+            <div class = "btn">
+              <h3>Info</h3>
+            </div>
+
+            <div class = "btn">
+              <h3>Register</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
