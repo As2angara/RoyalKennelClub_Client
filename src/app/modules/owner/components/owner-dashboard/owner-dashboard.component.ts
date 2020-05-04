@@ -17,7 +17,7 @@ import {Owner} from '../../models/owner';
 export class OwnerDashboardComponent implements OnInit {
 
   contestants$: Observable<Contestant[]>;
-  owner$: Observable<Owner>
+  owner$: Observable<Owner>;
 
   constructor(private service: OwnerService, public dialog: MatDialog) {
     // Owner Id of 1 is only used in the demo
