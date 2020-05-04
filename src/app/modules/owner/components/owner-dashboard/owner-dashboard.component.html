@@ -1,26 +1,31 @@
-<section>
+<section *ngIf = "(owner$ | async) as owner">
   <div id ="profile-title">
     <h1>Dashboard</h1>
     <hr>
   </div>
 
   <div id="profile-user">
-    <div id = "profile-user__pic"></div>
+
+    <div id = "profile-user__pic">
+      <img src="../../../../../assets/images/others/default.jpg" alt="">
+    </div>
     <div id = "profile-user__text1">
-      <p>Name Nameson</p>
-      <p>Email@email.mail</p>
-      <p>location: ipsum lorem</p>
+      <p style = "margin-top: 0;">{{owner.firstname}} {{owner.lastname}}</p>
+      <p>{{owner.email}}</p>
+      <p>Toronto, ON</p>
     </div>
     <div id = "profile-user__text2">
-      <p># of shows participated:</p>
-      <p># of shows placed:</p>
-      <p># of awards:</p>
-      <p># registered dogs:</p>
+      <table>
+        <tr><td><p># of shows participated:</p></td><td><p><strong>4</strong></p></td></tr>
+        <tr><td><p># of shows placed:</p></td><td><p><strong>2</strong></p></td></tr>
+        <tr><td><p># of awards:</p></td><td><p><strong>9</strong></p></td></tr>
+        <tr><td><p># of registered dogs:</p></td><td><p><strong>{{(contestants$|async).length}}</strong></p></td></tr>
+      </table>
     </div>
 
 
     <div id = "add-contestant" (click) = "addContestant()">
-      <h2>Add Dog</h2>
+      <h3>Register</h3>
     </div>
 
 

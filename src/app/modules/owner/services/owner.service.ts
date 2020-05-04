@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Contestant} from '../models/contestant';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {Owner} from '../models/owner';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class OwnerService {
 
   private url = 'https://royalkennelclub.herokuapp.com/contestants/owner/';
   private url2 = 'https://royalkennelclub.herokuapp.com/contestants/';
+  private url3 = 'https://royalkennelclub.herokuapp.com/user/'
 
   constructor(private http: HttpClient) { }
 
@@ -51,5 +53,9 @@ export class OwnerService {
 
   deleteContestant(id: number): Observable<Contestant> {
     return this.http.delete<Contestant>(`${this.url2}${id}`);
+  }
+
+  getOwnerById(id: number): Observable<Owner> {
+    return this.http.get<Owner>(`${this.url3}${id}`);
   }
 }

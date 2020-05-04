@@ -4,6 +4,15 @@ section {
   overflow: auto;
 
   padding: 50px 75px;
+
+  table td {
+    padding-right: 30px;
+
+    p {
+      margin: 0;
+
+    }
+  }
 }
 
 #profile-title {
@@ -23,23 +32,34 @@ section {
 
 #profile-user {
   display: flex;
+  justify-content: center;
   width: 100%;
   color: #50514fff;
   margin-bottom: 25px;
 
-  &__pic {
-    height: 250px;
-    width: 175px;
-    background-color: #50514fff;
+  &__pic{
+    height: auto;
+    width: 250px;
     margin-right: 20px;
+    display: flex;
+    justify-content: center;
+
+  }
+  img {
+    height: 200px;
+    width: 200px;
   }
 
   &__text1, &__text2 {
-    border: 1px solid black;
-    height: 250px;
-    padding: 0 20px;
+    //border: 1px solid black;
+    height: auto;
+    padding: 0px 20px;
     margin-right: 20px;
 
+  }
+
+  &__text1 p {
+    font-weight: bold;
   }
 
 }
@@ -48,7 +68,7 @@ section {
   margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
 }
 
@@ -117,8 +137,8 @@ section {
 
 #add-contestant {
 
-  height: 75px;
-  width: auto;
+  height: 50px;
+  width: 120px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -128,7 +148,7 @@ section {
   background-color: #50514fff;
   cursor: pointer;
 
-  h2 {
+  h3 {
     color: #fffcffff;
   }
 

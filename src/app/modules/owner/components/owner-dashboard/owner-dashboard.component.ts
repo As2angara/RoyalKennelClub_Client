@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material';
 import {AddContestantComponent} from '../add-contestant/add-contestant.component';
 import {EditContestantComponent} from '../edit-contestant/edit-contestant.component';
 import {map} from 'rxjs/operators';
+import {Owner} from '../../models/owner';
 
 @Component({
   selector: 'app-owner-dashboard',
@@ -16,10 +17,12 @@ import {map} from 'rxjs/operators';
 export class OwnerDashboardComponent implements OnInit {
 
   contestants$: Observable<Contestant[]>;
+  owner$: Observable<Owner>
 
   constructor(private service: OwnerService, public dialog: MatDialog) {
     // Owner Id of 1 is only used in the demo
     this.contestants$ = this.service.getContestantsByOwnerId(1);
+    this.owner$ = this.service.getOwnerById(1);
 
   }
 
