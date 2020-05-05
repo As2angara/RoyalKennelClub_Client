@@ -5,9 +5,21 @@
   <h4>Select a show:</h4>
 
   <div *ngFor = "let show of shows$ | async" >
-    {{show.id}}
-<!--    <input type="radio" [value]="show.id" formControlName="show">-->
-<!--    <label >{{show.type}} - {{show.date | date: 'mediumDate'}}</label>-->
+    <input type="radio" [value]="show.id" formControlName="show">
+    <label >{{show.type}} - {{show.date | date: 'mediumDate'}}</label>
+  </div>
+
+  <h4>Select a contestant:</h4>
+  <div *ngFor = "let con of contestants$ | async">
+    <input type="radio" [value] = "con.id" formControlName = "contestant"><label>{{con.name}}</label>
+
+    <p>{{con.breed}}</p>
+    <p>{{con.isSpecial ? 'Specialty': 'Regular'}}</p>
+  </div>
+
+  <hr>
+  <div class = "align-center">
+    <button type="submit">Register</button>
   </div>
 
 
