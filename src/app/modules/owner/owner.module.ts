@@ -23,8 +23,7 @@ import { EditContestantComponent } from './components/edit-contestant/edit-conte
         path: '',
         component: OwnerDashboardComponent
       }
-    ]),
-    ReactiveFormsModule
+    ])
   ]
 })
 export class OwnerModule { }

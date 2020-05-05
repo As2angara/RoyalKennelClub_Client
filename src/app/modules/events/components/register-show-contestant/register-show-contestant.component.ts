@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material';
+import {BreedServiceService} from '../../../breeds/services/breed-service.service';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {Show} from '../../models/show';
 
 @Component({
   selector: 'app-register-show-contestant',
@@ -7,9 +12,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterShowContestantComponent implements OnInit {
 
-  constructor() { }
+  registerForm: FormGroup;
+  shows$: Observable<Show[]>;
+
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+              private breedService: BreedServiceService,
+              private fb: FormBuilder) {
+
+    this.shows$ = this.data;
+
+
+    this.registerForm =  this.fb.group({
+      name: [''],
+      breed: [''],
+      gender: [''],
+      rank: ['']
+    });
+  }
 
   ngOnInit() {
   }
 
+  onRegisterShowContestant() {
+
+  }
 }
