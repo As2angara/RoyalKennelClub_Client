@@ -17,19 +17,14 @@
 
   <div id = "breed-card-container">
     <div *ngFor = "let breed of breeds$ | async" id = "breed-card">
-      <div *ngFor="let pic of breedPics$  | async">
-        <div *ngIf="pic.id === breed.id" >
-          <img src="{{pic.pic_url}}" alt="">
+      <img src="{{breed.pic_url}}" alt="">
 
-          <div id = "breed-card__inner">
-            <h1>{{breed.name}}</h1>
-            <p><strong>Group:</strong> {{breed.breed_group}}</p>
-            <p><strong>Temperament:</strong> {{breed.temperament}}</p>
-            <p><strong>Life span:</strong> {{breed.life_span}}</p>
-            <p><strong>Bred for:</strong> {{breed.bred_for}}</p>
-          </div>
-
-        </div>
+      <div id = "breed-card__inner">
+        <h1>{{breed.name}}</h1>
+        <p><strong>Group:</strong> {{breed.breed_group}}</p>
+        <p><strong>Temperament:</strong> {{breed.temperament}}</p>
+        <p><strong>Life span:</strong> {{breed.life_span}}</p>
+        <p><strong>Bred for:</strong> {{breed.bred_for}}</p>
       </div>
     </div>
   </div>

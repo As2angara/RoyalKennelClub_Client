@@ -13,11 +13,9 @@ import {filter, map} from 'rxjs/operators';
 export class BreedListComponent implements OnInit {
 
   breeds$: Observable<Breed[]>;
-  breedPics$: Observable<BreedPic[]>;
 
 
   constructor(private breeds: BreedServiceService) {
-    this.breedPics$ = breeds.getBreedPics();
 
     this.breeds$ = breeds.getBreeds();
 
