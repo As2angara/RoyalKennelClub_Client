@@ -2,14 +2,14 @@
 <hr>
 <form (ngSubmit)="onRegisterShowContestant()" [formGroup]="registerForm" >
 
-  <h4>Select a show:</h4>
+  <h2>Select a show:</h2>
 
   <div *ngFor = "let show of shows$ | async" >
     <input type="radio" [value]="show.id" formControlName="show">
     <label >{{show.type}} - {{show.date | date: 'mediumDate'}}</label>
   </div>
 
-  <h4>Select a contestant:</h4>
+  <h2>Select a contestant:</h2>
   <div *ngFor = "let con of contestants$ | async">
     <input type="radio" [value] = "con.id" formControlName = "contestant"><label>{{con.name}}</label>
 
