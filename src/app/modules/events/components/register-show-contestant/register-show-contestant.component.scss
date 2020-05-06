@@ -1,0 +1,57 @@
+.align-center {
+  width: 100%;
+  text-align: center;
+
+  button {
+    margin: 20px;
+    background-color: #50514fff;
+    color: #fffcffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 120px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background-color: #247ba0ff;
+  }
+}
+
+input[type=radio] {
+  margin-right: 30px;
+}
+
+.show-select {
+  margin-bottom: 5px;
+  color: #50514fff;
+}
+
+.dog-name {
+  font-weight: bold;
+  color: #247ba0ff;
+}
+
+#con-select-container {
+  width: 430px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+
+  margin: auto;
+}
+
+.con-select {
+
+  width: 200px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px grey;
+
+  p {
+    color: #50514fff;
+  }
+}
