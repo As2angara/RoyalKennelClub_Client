@@ -3,14 +3,14 @@
 <form (ngSubmit)="onEditContestant()" [formGroup]="editForm" >
   <table>
     <tr>
-      <td>Name:</td>
-      <td>
+      <td class = "form-label">Name:</td>
+      <td class = "form-field">
         <input type="text" formControlName="name" >
       </td>
     </tr>
     <tr>
-      <td>Breed:</td>
-      <td>
+      <td class = "form-label">Breed:</td>
+      <td class = "form-field">
         <select formControlName = "breed">
           <option *ngFor =  "let breed of breeds$ | async" [value] = "breed.name">
             {{breed.name}}
@@ -21,16 +21,16 @@
 
 
     <tr>
-      <td>Gender:</td>
-      <td>
+      <td class = "form-label">Gender:</td>
+      <td class = "form-field">
         <label>Male</label><input type="radio" value="male" formControlName="gender"><br>
         <label>Female</label><input type="radio" value="female" formControlName="gender">
       </td>
     </tr>
 
     <tr>
-      <td>Rank:</td>
-      <td>
+      <td class = "form-label">Rank:</td>
+      <td class = "form-field">
         <label>Regular</label><input type="radio" value="regular" formControlName="rank"><br>
         <label>Specialty</label><input type="radio" value="specialty" formControlName="rank">
       </td>

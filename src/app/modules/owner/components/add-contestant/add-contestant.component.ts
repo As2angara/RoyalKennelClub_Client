@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {Breed} from '../../../breeds/models/breed';
@@ -62,8 +62,8 @@ export class AddContestantComponent implements OnInit {
 
     this.ownerService.addContestant(this.contestant).subscribe();
 
-    window.location.reload();
     this.dialog.close();
+    window.location.reload();
 
   }
 

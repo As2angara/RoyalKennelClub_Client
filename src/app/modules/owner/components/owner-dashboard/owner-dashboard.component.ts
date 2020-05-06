@@ -18,6 +18,8 @@ export class OwnerDashboardComponent implements OnInit {
 
   contestants$: Observable<Contestant[]>;
   owner$: Observable<Owner>;
+  contestant$: Contestant;
+
 
   constructor(private service: OwnerService, public dialog: MatDialog) {
     // Owner Id of 1 is only used in the demo
@@ -30,18 +32,19 @@ export class OwnerDashboardComponent implements OnInit {
 
 
   addContestant() {
-    this.dialog.open(AddContestantComponent, {
+    const modalRef = this.dialog.open(AddContestantComponent, {
       minWidth: '500px',
-      minHeight: '700px',
+      minHeight: 'auto',
       maxHeight: '100vh',
       maxWidth: '100vw'
     });
+
   }
 
   editContestant(con) {
     this.dialog.open(EditContestantComponent, {
       minWidth: '500px',
-      minHeight: '700px',
+      minHeight: 'auto',
       maxHeight: '100vh',
       maxWidth: '100vw',
       data: con

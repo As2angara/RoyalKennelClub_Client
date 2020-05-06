@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BreedServiceService} from '../../services/breed-service.service';
 import {Breed} from '../../models/breed';
-import {BreedPic} from '../../models/breedpic';
 import {Observable} from 'rxjs';
 import {filter, map} from 'rxjs/operators';
 
