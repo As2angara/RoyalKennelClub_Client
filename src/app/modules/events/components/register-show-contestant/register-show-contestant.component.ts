@@ -45,7 +45,8 @@ export class RegisterShowContestantComponent implements OnInit {
 
     this.showContestant = {
       showId: this.registerForm.get('show').value,
-      contestantId: this.registerForm.get('contestant').value
+      contestantId: this.registerForm.get('contestant').value,
+      id: 0
     };
 
 

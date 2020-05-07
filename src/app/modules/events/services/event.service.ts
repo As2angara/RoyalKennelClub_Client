@@ -25,6 +25,17 @@ export class EventService {
     return this.http.get<Show[]>(`${this.url}/show/contestants/${id}`);
   }
 
+  getShowContestant(con: ShowContestant): Observable<ShowContestant> {
+
+    const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+    // @ts-ignore
+    return this.http.get<ShowContestant>(`${this.url}/show-contestant`, con, config);
+  }
+
+  getShowContestants(): Observable<ShowContestant[]> {
+    return this.http.get<ShowContestant[]>(`${this.url}/show-contestant`);
+  }
+
   addShowContestant(con: ShowContestant): Observable<ShowContestant> {
 
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
@@ -32,12 +43,9 @@ export class EventService {
     return this.http.post<ShowContestant>(`${this.url}/show-contestant`, con, config);
   }
 
-  deleteShowContestant(con: ShowContestant): Observable<ShowContestant> {
+  deleteShowContestant(id: number): Observable<ShowContestant> {
 
-    const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-
-    // @ts-ignore
-    return this.http.delete<ShowContestant>(`${this.url}/show-contestant`, con, config);
+    return this.http.delete<ShowContestant>(`${this.url}/show-contestant/${id}`);
   }
 
 

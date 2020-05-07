@@ -6,6 +6,7 @@ import {Show} from '../../../events/models/show';
 import {EventService} from '../../../events/services/event.service';
 import {Contestant} from '../../models/contestant';
 import {ShowContestant} from '../../../events/models/showcontestant';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-view-shows',
@@ -17,8 +18,6 @@ export class ViewShowsComponent implements OnInit {
   deenrollForm: FormGroup;
   shows$: Observable<Show[]>;
   events$: Observable<Event[]>;
-  contestant: ShowContestant;
-
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private fb: FormBuilder,
@@ -39,19 +38,6 @@ export class ViewShowsComponent implements OnInit {
   }
 
   onRemoveShowContestant() {
-
-    this.contestant  = {
-      // tslint:disable-next-line:radix
-      showId: parseInt(this.deenrollForm.get('show').value),
-      contestantId: this.data.contestant.id
-    };
-
-
-    console.log(this.contestant);
-
-    this.eventService.deleteShowContestant(this.contestant).subscribe();
-
-    this.dialog.close();
 
   }
 
