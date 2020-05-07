@@ -6,7 +6,7 @@
 
   <div id="profile-user">
 
-    <div id = "profile-user__pic">
+    <div id = "profile-user__pic" >
       <img src="../../../../../assets/images/others/default.jpg" alt="">
     </div>
     <div id = "profile-user__text1">
@@ -33,7 +33,11 @@
   <hr>
   <div id="contestant-card-container">
     <div id="contestant-card" *ngFor ="let con of contestants$ | async">
-      <img src ="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/29112347/Australian-Terrier-on-White-011.jpg" alt="">
+
+      <div *ngFor = "let breed of breeds$ | async" >
+        <img *ngIf = "breed.name === con.breed" src ="{{breed.pic_url}}" alt="">
+      </div>
+
       <div id="contestant-card__inner">
         <div id = "contestant-card__title">
           <h1>{{con.name}}</h1>
