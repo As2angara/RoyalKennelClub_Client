@@ -9,6 +9,7 @@ import {ShowContestant} from '../models/showcontestant';
 })
 export class EventService {
 
+  private proxy = 'https://cors-anywhere.herokuapp.com';
   private url = 'https://royalkennelclub.herokuapp.com';
 
   constructor(private http: HttpClient) { }
@@ -27,9 +28,7 @@ export class EventService {
 
   getShowContestant(con: ShowContestant): Observable<ShowContestant> {
 
-    const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    // @ts-ignore
-    return this.http.get<ShowContestant>(`${this.url}/show-contestant`, con, config);
+    return this.http.get<ShowContestant>(`${this.url}/show-contestant/${con.showId}/${con.contestantId}`);
   }
 
   getShowContestants(): Observable<ShowContestant[]> {
