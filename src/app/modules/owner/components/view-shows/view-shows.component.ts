@@ -17,6 +17,7 @@ export class ViewShowsComponent implements OnInit {
   deenrollForm: FormGroup;
   shows$: Observable<Show[]>;
   events$: Observable<Event[]>;
+  contestant: ShowContestant;
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
@@ -39,14 +40,16 @@ export class ViewShowsComponent implements OnInit {
 
   onRemoveShowContestant() {
 
-    const contestant: ShowContestant = {
+    this.contestant  = {
       // tslint:disable-next-line:radix
       showId: parseInt(this.deenrollForm.get('show').value),
       contestantId: this.data.contestant.id
     };
 
 
-    this.eventService.deleteShowContestant(contestant).subscribe();
+    console.log(this.contestant);
+
+    this.eventService.deleteShowContestant(this.contestant).subscribe();
 
     this.dialog.close();
 
