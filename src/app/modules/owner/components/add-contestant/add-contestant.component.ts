@@ -62,8 +62,11 @@ export class AddContestantComponent implements OnInit {
 
     this.ownerService.addContestant(this.contestant).subscribe();
 
+    this.dialog.afterClosed().subscribe(result => {
+      window.location.reload();
+    });
+
     this.dialog.close();
-    window.location.reload();
 
   }
 

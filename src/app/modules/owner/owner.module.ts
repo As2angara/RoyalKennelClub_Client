@@ -6,12 +6,13 @@ import {MatDialogModule, MatFormFieldModule, MatIconModule, MatMenuModule} from 
 import { AddContestantComponent } from './components/add-contestant/add-contestant.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { EditContestantComponent } from './components/edit-contestant/edit-contestant.component';
+import { ViewShowsComponent } from './components/view-shows/view-shows.component';
 
 
 
 @NgModule({
-  declarations: [OwnerDashboardComponent, AddContestantComponent, EditContestantComponent],
-  entryComponents: [AddContestantComponent, EditContestantComponent],
+  declarations: [OwnerDashboardComponent, AddContestantComponent, EditContestantComponent, ViewShowsComponent],
+  entryComponents: [AddContestantComponent, EditContestantComponent, ViewShowsComponent],
   imports: [
     CommonModule,
     MatDialogModule,

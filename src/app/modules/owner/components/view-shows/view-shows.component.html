@@ -1,1 +1,19 @@
-<p>view-shows works!</p>
+<h1>Shows Currently Enrolled In</h1>
+<hr>
+<form (ngSubmit)="onRemoveShowContestant()" [formGroup]="deenrollForm" >
+
+  <div *ngFor = "let show of shows$ | async" id = "show-card">
+    <div *ngFor = "let event of events$ | async">
+      <h3 *ngIf = "event.id === show.eventId"> {{event.name}}</h3>
+    </div>
+    <input type="radio" value="{{show.id}}" formControlName="show">
+    <label>{{show.type}} - {{show.date | date: 'mediumDate'}}</label>
+
+  </div>
+
+  <hr>
+  <div class = "align-center">
+    <button type="submit">De-Enroll</button>
+  </div>
+</form>
+

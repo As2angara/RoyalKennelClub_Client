@@ -9,6 +9,9 @@ import {map} from 'rxjs/operators';
 import {Owner} from '../../models/owner';
 import {BreedServiceService} from '../../../breeds/services/breed-service.service';
 import {Breed} from '../../../breeds/models/breed';
+import {ViewShowsComponent} from '../view-shows/view-shows.component';
+import {EventService} from '../../../events/services/event.service';
+import {ShowContestant} from '../../../events/models/showcontestant';
 
 @Component({
   selector: 'app-owner-dashboard',
@@ -21,11 +24,13 @@ export class OwnerDashboardComponent implements OnInit {
   contestants$: Observable<Contestant[]>;
   owner$: Observable<Owner>;
   breeds$: Observable<Breed[]>;
+  showContestants$: Observable<ShowContestant[]>;
 
 
   constructor(private service: OwnerService,
               public dialog: MatDialog,
-              private breedService: BreedServiceService) {
+              private breedService: BreedServiceService,
+              private eventService: EventService) {
     // Owner Id of 1 is only used in the demo
     this.contestants$ = this.service.getContestantsByOwnerId(1);
     this.owner$ = this.service.getOwnerById(1);
@@ -38,12 +43,27 @@ export class OwnerDashboardComponent implements OnInit {
 
 
   addContestant() {
-    const modalRef = this.dialog.open(AddContestantComponent, {
+    this.dialog.open(AddContestantComponent, {
       minWidth: '500px',
       minHeight: 'auto',
       maxHeight: '100vh',
       maxWidth: '100vw',
       data: this.breeds$
+    });
+  }
+
+  viewShowsEnrolledIn(con) {
+
+    this.dialog.open(ViewShowsComponent, {
+      minWidth: '500px',
+      minHeight: 'auto',
+      maxHeight: '100vh',
+      maxWidth: '100vw',
+      data: {
+        shows: this.eventService.getShowsByContestantId(con.id),
+        events: this.eventService.getEvents(),
+        contestant: con
+      }
     });
 
   }
@@ -59,7 +79,6 @@ export class OwnerDashboardComponent implements OnInit {
         breeds: this.breeds$
       }
     });
-
 
   }
 

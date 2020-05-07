@@ -5,12 +5,12 @@
   </div>
   <div id ="nav-inner">
     <a [routerLink]="['/']" (click) = "chosen('home')"><h1 [ngClass] = "{'chosen': isChosen === 'home'}" >Home</h1></a>
-    <a [routerLink]="['/owner']" (click) = "chosen('profile')"><h1 [ngClass] = "{'chosen': isChosen === 'profile'}" >Profile</h1></a>
     <a [routerLink]="['/breeds']" (click) = "chosen('breeds')"><h1 [ngClass] = "{'chosen': isChosen === 'breeds'}" >Breeds</h1></a>
 
     <hr>
+    <a [routerLink]="['/owner']" (click) = "chosen('profile')"><h1 [ngClass] = "{'chosen': isChosen === 'profile'}" >Profile</h1></a>
     <a [routerLink]="['/events']" (click) = "chosen('events')"><h1 [ngClass] = "{'chosen': isChosen === 'events'}" >Events</h1></a>
-    <a [routerLink]="['/']" (click) = "chosen('results')"><h1 [ngClass] = "{'chosen': isChosen === 'results'}" >Results</h1></a>
+    <a [routerLink]="['/']" (click) = "chosen('logout')"><h1 [ngClass] = "{'chosen': isChosen === 'logout'}" >Logout</h1></a>
   </div>
 
 

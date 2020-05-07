@@ -1,0 +1,32 @@
+.align-center {
+  width: 100%;
+  text-align: center;
+
+  button {
+    margin: 20px;
+    background-color: #50514fff;
+    color: #fffcffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 120px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background-color: #247ba0ff;
+  }
+}
+
+#show-card {
+  padding-left: 20px;
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+  input, label {
+    margin-left: 20px;
+  }
+}

@@ -87,7 +87,6 @@ export class EditContestantComponent implements OnInit {
     });
 
     this.dialog.close();
-
   }
 
 }

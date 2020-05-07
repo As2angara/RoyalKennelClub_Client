@@ -19,7 +19,7 @@
         <tr><td><p># of shows participated:</p></td><td><p><strong>4</strong></p></td></tr>
         <tr><td><p># of shows placed:</p></td><td><p><strong>2</strong></p></td></tr>
         <tr><td><p># of awards:</p></td><td><p><strong>9</strong></p></td></tr>
-        <tr><td><p># of registered dogs:</p></td><td><p><strong>{{(contestants$|async).length}}</strong></p></td></tr>
+<!--        <tr><td><p># of registered dogs:</p></td><td><p><strong>{{(contestants$|async).length}}</strong></p></td></tr>-->
       </table>
     </div>
 
@@ -45,6 +45,10 @@
             <i class="fas fa-ellipsis-v"></i>
           </div>
           <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item (click) = "viewShowsEnrolledIn(con)">
+              <mat-icon color="accent">assignment</mat-icon>
+              <span>Shows</span>
+            </button>
             <button mat-menu-item (click) = "editContestant(con)">
               <mat-icon color="primary">create</mat-icon>
               <span>Edit</span>
@@ -69,8 +73,6 @@
         </ng-template>
       </div>
     </div>
-
-
   </div>
 
 </section>
