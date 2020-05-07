@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {Breed} from '../../../breeds/models/breed';
@@ -6,7 +6,7 @@ import {BreedServiceService} from '../../../breeds/services/breed-service.servic
 import {map} from 'rxjs/operators';
 import {Contestant} from '../../models/contestant';
 import {OwnerService} from '../../services/owner.service';
-import {MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-add-contestant',
@@ -20,13 +20,13 @@ export class AddContestantComponent implements OnInit {
   contestant = {} as Contestant;
 
 
-  constructor(private breeds: BreedServiceService,
-              private ownerService: OwnerService,
+  constructor(private ownerService: OwnerService,
+              @Inject(MAT_DIALOG_DATA) public data: any,
               private fb: FormBuilder,
               private dialog: MatDialogRef<AddContestantComponent>) {
 
 
-    this.breeds$ = breeds.getBreeds();
+    this.breeds$ = this.data;
 
     this.addForm =  this.fb.group({
       name: [''],

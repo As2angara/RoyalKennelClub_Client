@@ -7,6 +7,8 @@ import {AddContestantComponent} from '../add-contestant/add-contestant.component
 import {EditContestantComponent} from '../edit-contestant/edit-contestant.component';
 import {map} from 'rxjs/operators';
 import {Owner} from '../../models/owner';
+import {BreedServiceService} from '../../../breeds/services/breed-service.service';
+import {Breed} from '../../../breeds/models/breed';
 
 @Component({
   selector: 'app-owner-dashboard',
@@ -18,13 +20,17 @@ export class OwnerDashboardComponent implements OnInit {
 
   contestants$: Observable<Contestant[]>;
   owner$: Observable<Owner>;
-  contestant$: Contestant;
+  breeds$: Observable<Breed[]>;
 
 
-  constructor(private service: OwnerService, public dialog: MatDialog) {
+  constructor(private service: OwnerService,
+              public dialog: MatDialog,
+              private breedService: BreedServiceService) {
     // Owner Id of 1 is only used in the demo
     this.contestants$ = this.service.getContestantsByOwnerId(1);
     this.owner$ = this.service.getOwnerById(1);
+
+    this.breeds$ = breedService.getBreeds();
 
   }
 
@@ -36,7 +42,8 @@ export class OwnerDashboardComponent implements OnInit {
       minWidth: '500px',
       minHeight: 'auto',
       maxHeight: '100vh',
-      maxWidth: '100vw'
+      maxWidth: '100vw',
+      data: this.breeds$
     });
 
   }
@@ -47,7 +54,10 @@ export class OwnerDashboardComponent implements OnInit {
       minHeight: 'auto',
       maxHeight: '100vh',
       maxWidth: '100vw',
-      data: con
+      data: {
+        contestant: con,
+        breeds: this.breeds$
+      }
     });
 
 

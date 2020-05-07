@@ -21,13 +21,12 @@ export class EditContestantComponent implements OnInit {
   breeds$: Observable<Breed[]>;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private breedService: BreedServiceService,
               private fb: FormBuilder,
               private ownerService: OwnerService,
               private dialog: MatDialogRef<EditContestantComponent>) {
 
-    this.breeds$ = breedService.getBreeds();
-    this.contestant = this.data;
+    this.breeds$ = this.data.breeds;
+    this.contestant = this.data.contestant;
 
     this.editForm =  this.fb.group({
       name: [''],
