@@ -7,6 +7,7 @@ import {EditContestantComponent} from '../../../owner/components/edit-contestant
 import {map} from 'rxjs/operators';
 import {RegisterShowContestantComponent} from '../register-show-contestant/register-show-contestant.component';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Event} from '../../models/event';
 
 @Component({
   selector: 'app-event-list',

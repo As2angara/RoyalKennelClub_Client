@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Show} from '../../models/show';
 import {map} from 'rxjs/operators';
+import {Event} from '../../models/event';
 
 @Component({
   selector: 'app-event-info',

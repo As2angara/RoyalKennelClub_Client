@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Show} from '../models/show';
 import {ShowContestant} from '../models/showcontestant';
+import {Event} from '../models/event';
 
 @Injectable({
   providedIn: 'root'
