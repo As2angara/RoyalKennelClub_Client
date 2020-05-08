@@ -6,7 +6,7 @@ export interface ShowContestantFull {
   name: string;
   breed: string;
   group: string;
-  isMale: boolean;
-  isSpecial: boolean;
+  male: boolean;
+  special: boolean;
 
 }

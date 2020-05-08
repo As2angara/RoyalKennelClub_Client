@@ -33,8 +33,12 @@
               </p>
               <p>
                 <br>
-                Gender: {{con.isMale ? 'Male': 'Female'}}<br>
-                Rank: {{con.isSpecial ? 'Specialty': 'Regular'}}
+
+                Gender: <span *ngIf = "con.male else female">Male</span><br>
+                Rank: <span *ngIf = "con.special else regular">Specialty</span>
+
+                <ng-template #female>Female</ng-template>
+                <ng-template #regular>Regular</ng-template>
               </p>
             </div>
           </div>
