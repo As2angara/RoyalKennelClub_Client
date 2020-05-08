@@ -4,6 +4,10 @@
     <hr>
   </div>
 
+  <div class = "align-center">
+    <h1>{{}}</h1>
+  </div>
+
   <div *ngFor = "let show of shows$ | async">
     <p>{{show.type}} - {{show.date | date: 'mediumDate'}}</p>
   </div>

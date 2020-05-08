@@ -14,6 +14,7 @@ export class EventInfoComponent implements OnInit {
 
   id: number;
   shows$: Observable<Show[]>;
+  event$: Observable<Event>;
 
   constructor(private eventService: EventService,
               private route: ActivatedRoute,
@@ -25,6 +26,10 @@ export class EventInfoComponent implements OnInit {
 
     this.shows$ = this.eventService.getShows().pipe(
       map(shows => shows.filter( show => show.eventId === this.id ))
+    );
+
+    this.event$ = this.eventService.getEvents().pipe(
+      map(events => events.filter(event => event.id === this.id)[0])
     );
   }
 
