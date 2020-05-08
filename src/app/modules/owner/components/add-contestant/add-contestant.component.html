@@ -6,6 +6,7 @@
       <td class = "form-label" >Name:</td>
       <td class = "form-field">
           <input type="text" formControlName="name">
+          <mat-error *ngIf="checkError('name')">A Name is Required</mat-error>
       </td>
     </tr>
     <tr>

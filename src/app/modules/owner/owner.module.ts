@@ -7,6 +7,7 @@ import { AddContestantComponent } from './components/add-contestant/add-contesta
 import {ReactiveFormsModule} from '@angular/forms';
 import { EditContestantComponent } from './components/edit-contestant/edit-contestant.component';
 import { ViewShowsComponent } from './components/view-shows/view-shows.component';
+import {ConfirmationDialogComponent} from '../../components/confirmation-dialog/confirmation-dialog.component';
 
 
 
@@ -24,7 +25,8 @@ import { ViewShowsComponent } from './components/view-shows/view-shows.component
         path: '',
         component: OwnerDashboardComponent
       }
-    ])
+    ]),
+    MatFormFieldModule
   ]
 })
 export class OwnerModule { }

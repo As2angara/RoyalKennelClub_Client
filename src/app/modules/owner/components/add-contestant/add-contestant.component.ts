@@ -1,12 +1,13 @@
 import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {Breed} from '../../../breeds/models/breed';
 import {BreedServiceService} from '../../../breeds/services/breed-service.service';
 import {map} from 'rxjs/operators';
 import {Contestant} from '../../models/contestant';
 import {OwnerService} from '../../services/owner.service';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
+import {ConfirmationDialogComponent} from '../../../../components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-add-contestant',
@@ -18,18 +19,20 @@ export class AddContestantComponent implements OnInit {
   addForm: FormGroup;
   breeds$: Observable<Breed[]>;
   contestant = {} as Contestant;
+  formSubmit: boolean;
 
 
   constructor(private ownerService: OwnerService,
               @Inject(MAT_DIALOG_DATA) public data: any,
               private fb: FormBuilder,
-              private dialog: MatDialogRef<AddContestantComponent>) {
+              private dialogRef: MatDialogRef<AddContestantComponent>,
+              private dialog: MatDialog) {
 
-
+    this.formSubmit = false;
     this.breeds$ = this.data;
 
     this.addForm =  this.fb.group({
-      name: [''],
+      name: ['', Validators.required],
       breed: ['Affenpinscher'],
       gender: ['male'],
       rank: ['regular']
@@ -39,7 +42,19 @@ export class AddContestantComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkError(control: string): boolean {
+    return this.addForm.get(control).hasError('required')
+      && this.formSubmit;
+
+  }
+
   onAddContestant() {
+
+    if (this.addForm.invalid) {
+      this.formSubmit = true;
+      return;
+    }
+
 
     // retrieve contestant name
     this.contestant.name = this.addForm.get('name').value;
@@ -60,13 +75,23 @@ export class AddContestantComponent implements OnInit {
       this.contestant.isSpecial = true;
     }
 
-    this.ownerService.addContestant(this.contestant).subscribe();
+    this.dialog.open(ConfirmationDialogComponent, {
+      minWidth: '400px',
+      minHeight: 'auto',
+      maxHeight: '100vh',
+      maxWidth: '100vw',
+      position: {
+        top: '50px'
+      },
+      data: 'Registered Successfully!'
 
-    this.dialog.afterClosed().subscribe(result => {
-      window.location.reload();
     });
 
-    this.dialog.close();
+    this.ownerService.addContestant(this.contestant).subscribe();
+
+
+
+    this.dialogRef.close();
 
   }
 

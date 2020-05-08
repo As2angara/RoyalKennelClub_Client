@@ -7,6 +7,7 @@ import {EventService} from '../../../events/services/event.service';
 import {Contestant} from '../../models/contestant';
 import {ShowContestant} from '../../../events/models/showcontestant';
 import {map} from 'rxjs/operators';
+import {Event} from '../../../events/models/event';
 
 @Component({
   selector: 'app-view-shows',
