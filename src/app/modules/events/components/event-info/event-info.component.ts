@@ -34,4 +34,8 @@ export class EventInfoComponent implements OnInit {
     );
   }
 
+  navigateBack() {
+    this.router.navigate(['/events'], {relativeTo: this.route});
+  }
+
 }

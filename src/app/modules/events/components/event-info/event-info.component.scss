@@ -6,20 +6,37 @@ section {
   padding: 50px 75px;
 }
 
+#navigate-back {
+  left: 0;
+  top: 0;
+  position: absolute;
+
+  p {
+    margin: 0;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}
+
 #event-title {
+  position: relative;
   width: 100%;
-  text-align: left;
+  text-align: center;
   margin-bottom: 25px;
   color: #50514fff;
 
   h1 {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: bolder;
     margin: 0;
   }
 }
 
-.align-center {
+.align-left {
   width: 100%;
-  text-align: center;
+  text-align: left;
 }

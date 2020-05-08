@@ -1,11 +1,17 @@
-<section>
+<section *ngIf = "(event$ | async) as event">
   <div id ="event-title">
-    <h1>Events</h1>
+    <div id = "navigate-back">
+
+      <p (click) = "navigateBack()"><i class="fas fa-chevron-left"></i> &nbsp;Events</p>
+    </div>
+
+    <h1>{{event.name}}</h1>
     <hr>
   </div>
 
-  <div class = "align-center">
-    <h1>{{}}</h1>
+  <div class = "align-left">
+    <h1><strong>Venue:</strong> {{event.venue}}</h1>
+    <h1><strong>Location:</strong> {{event.location}}</h1>
   </div>
 
   <div *ngFor = "let show of shows$ | async">
