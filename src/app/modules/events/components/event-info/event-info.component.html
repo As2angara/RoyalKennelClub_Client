@@ -23,7 +23,21 @@
           <hr>
         </div>
         <div id = "show-card__table" >
-          <p *ngFor = "let con of showContestantsFull$ | async">{{con.name}}</p>
+          <div *ngFor = "let con of showContestantsFull$ | async">
+
+            <div *ngIf = "con.showId === show.id" class = "card-info">
+              <p>
+                <strong>{{con.name}}</strong><br>
+                Owner: {{con.firstname}} {{con.lastname}}<br>
+                Breed: {{con.breed}}
+              </p>
+              <p>
+                <br>
+                Gender: {{con.isMale ? 'Male': 'Female'}}<br>
+                Rank: {{con.isSpecial ? 'Specialty': 'Regular'}}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

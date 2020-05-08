@@ -82,3 +82,21 @@ section {
     overflow: auto;
   }
 }
+
+.card-info {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid lightgray;
+
+  p {
+    margin: 0;
+    padding: 10px 0;
+
+    strong {
+      text-decoration: underline;
+    }
+  }
+
+}
