@@ -4,6 +4,9 @@
     <hr>
   </div>
 
+  <div *ngFor = "let show of shows$ | async">
+    <p>{{show.type}} - {{show.date | date: 'mediumDate'}}</p>
+  </div>
 </section>
 
 

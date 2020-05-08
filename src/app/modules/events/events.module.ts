@@ -23,7 +23,7 @@ import { EventInfoComponent } from './components/event-info/event-info.component
         component: EventListComponent,
       },
       {
-        path: 'info',
+        path: 'info/:id',
         component: EventInfoComponent
       }
     ])

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {EventService} from '../../services/event.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {Show} from '../../models/show';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-event-info',
@@ -8,9 +12,20 @@ import {EventService} from '../../services/event.service';
 })
 export class EventInfoComponent implements OnInit {
 
-  constructor(private eventService: EventService) { }
+  id: number;
+  shows$: Observable<Show[]>;
+
+  constructor(private eventService: EventService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
+    // tslint:disable-next-line:radix
+    this.id = parseInt(this.route.snapshot.paramMap.get('id'));
+
+    this.shows$ = this.eventService.getShows().pipe(
+      map(shows => shows.filter( show => show.eventId === this.id ))
+    );
   }
 
 }

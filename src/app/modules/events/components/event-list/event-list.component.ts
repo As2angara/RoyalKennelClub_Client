@@ -43,7 +43,7 @@ export class EventListComponent implements OnInit {
   }
 
 
-  showInfo() {
-    this.router.navigate(['info'], {relativeTo: this.route});
+  showInfo(id) {
+    this.router.navigate([`info/${id}`], {relativeTo: this.route});
   }
 }
