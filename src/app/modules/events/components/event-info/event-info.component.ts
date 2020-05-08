@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {Show} from '../../models/show';
 import {map} from 'rxjs/operators';
 import {Event} from '../../models/event';
+import {ShowContestantFull} from '../../models/showcontestantfull';
 
 @Component({
   selector: 'app-event-info',
@@ -16,6 +17,7 @@ export class EventInfoComponent implements OnInit {
   id: number;
   shows$: Observable<Show[]>;
   event$: Observable<Event>;
+  showContestantsFull$: Observable<ShowContestantFull[]>;
 
   constructor(private eventService: EventService,
               private route: ActivatedRoute,
@@ -32,6 +34,8 @@ export class EventInfoComponent implements OnInit {
     this.event$ = this.eventService.getEvents().pipe(
       map(events => events.filter(event => event.id === this.id)[0])
     );
+
+    this.showContestantsFull$ = this.eventService.getShowContestantFullTable();
   }
 
   navigateBack() {

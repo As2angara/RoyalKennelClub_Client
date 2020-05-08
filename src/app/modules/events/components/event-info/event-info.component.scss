@@ -36,7 +36,49 @@ section {
   }
 }
 
-.align-left {
+.align-center {
   width: 100%;
-  text-align: left;
+  text-align: center;
+}
+
+#show-card-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  &__inner {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+#show-card {
+  width: 450px;
+  height: auto;
+  background-color: #fffcffff;
+  box-shadow: 1px 1px 5px grey;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 20px;
+
+
+  &__header {
+    width: 100%;
+    text-align: center;
+    color: #247ba0ff;
+    font-size: smaller;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__table {
+    height: 300px;
+    width: 100%;
+    overflow: auto;
+  }
 }

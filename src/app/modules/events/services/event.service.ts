@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Show} from '../models/show';
 import {ShowContestant} from '../models/showcontestant';
 import {Event} from '../models/event';
+import {ShowContestantFull} from '../models/showcontestantfull';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
+  // Read Operations
   getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(`${this.url}/event`);
   }
@@ -31,10 +33,11 @@ export class EventService {
     return this.http.get<ShowContestant>(`${this.url}/show-contestant/${con.showId}/${con.contestantId}`);
   }
 
-  getShowContestantsTable(): Observable<ShowContestant[]> {
-    return this.http.get<ShowContestant[]>(`${this.url}/show-contestant`);
+  getShowContestantFullTable(): Observable<ShowContestantFull[]> {
+    return this.http.get<ShowContestantFull[]>(`${this.url}/show-contestant/full`);
   }
 
+  // Create Operation
   addShowContestant(con: ShowContestant): Observable<ShowContestant> {
 
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
@@ -42,6 +45,7 @@ export class EventService {
     return this.http.post<ShowContestant>(`${this.url}/show-contestant`, con, config);
   }
 
+  // Delete Operation
   deleteShowContestant(id: number): Observable<ShowContestant> {
 
     return this.http.delete<ShowContestant>(`${this.url}/show-contestant/${id}`);

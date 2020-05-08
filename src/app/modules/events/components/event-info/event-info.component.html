@@ -9,14 +9,26 @@
     <hr>
   </div>
 
-  <div class = "align-left">
+  <div class = "align-center">
     <h1><strong>Venue:</strong> {{event.venue}}</h1>
     <h1><strong>Location:</strong> {{event.location}}</h1>
   </div>
 
-  <div *ngFor = "let show of shows$ | async">
-    <p>{{show.type}} - {{show.date | date: 'mediumDate'}}</p>
+  <div id = "show-card-container">
+    <div id = "show-card-container__inner">
+      <div *ngFor = "let show of shows$ | async" id = "show-card">
+        <div id = "show-card__header">
+          <p>Contestants for:</p>
+          <h2>{{show.type}} - {{show.date | date: 'mediumDate'}}</h2>
+          <hr>
+        </div>
+        <div id = "show-card__table" >
+          <p *ngFor = "let con of showContestantsFull$ | async">{{con.name}}</p>
+        </div>
+      </div>
+    </div>
   </div>
+
 </section>
 
 
