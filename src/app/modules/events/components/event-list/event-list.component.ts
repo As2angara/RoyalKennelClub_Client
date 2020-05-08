@@ -6,6 +6,7 @@ import {MatDialog, MatDialogRef} from '@angular/material';
 import {EditContestantComponent} from '../../../owner/components/edit-contestant/edit-contestant.component';
 import {map} from 'rxjs/operators';
 import {RegisterShowContestantComponent} from '../register-show-contestant/register-show-contestant.component';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-event-list',
@@ -18,7 +19,9 @@ export class EventListComponent implements OnInit {
   shows$: Observable<Show[]>;
 
   constructor(private eventService: EventService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private route: ActivatedRoute,
+              private router: Router) {
 
     this.events$ = this.eventService.getEvents();
     this.shows$ = this.eventService.getShows();
@@ -39,4 +42,8 @@ export class EventListComponent implements OnInit {
 
   }
 
+
+  showInfo() {
+    this.router.navigate(['info'], {relativeTo: this.route});
+  }
 }

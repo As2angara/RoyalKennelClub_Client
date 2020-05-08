@@ -34,8 +34,6 @@ export class ViewShowsComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
   }
 
   onRemoveShowContestant() {

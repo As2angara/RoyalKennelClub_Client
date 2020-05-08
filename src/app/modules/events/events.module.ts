@@ -6,11 +6,12 @@ import { EventListComponent } from './components/event-list/event-list.component
 import { RegisterShowContestantComponent } from './components/register-show-contestant/register-show-contestant.component';
 import {MatDialogModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
+import { EventInfoComponent } from './components/event-info/event-info.component';
 
 
 
 @NgModule({
-  declarations: [EventListComponent, RegisterShowContestantComponent],
+  declarations: [EventListComponent, RegisterShowContestantComponent, EventInfoComponent],
   entryComponents: [RegisterShowContestantComponent],
   imports: [
     CommonModule,
@@ -19,7 +20,11 @@ import {ReactiveFormsModule} from '@angular/forms';
     RouterModule.forChild([
       {
         path: '',
-        component: EventListComponent
+        component: EventListComponent,
+      },
+      {
+        path: 'info',
+        component: EventInfoComponent
       }
     ])
   ]

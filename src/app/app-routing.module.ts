@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {EventInfoComponent} from './modules/events/components/event-info/event-info.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'events',
-    loadChildren: () => import('./modules/events/events.module').then(m => m.EventsModule)
+    loadChildren: () => import('./modules/events/events.module').then(m => m.EventsModule),
+
   }
 
 ];
