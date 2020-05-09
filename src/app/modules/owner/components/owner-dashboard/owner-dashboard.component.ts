@@ -12,6 +12,7 @@ import {Breed} from '../../../breeds/models/breed';
 import {ViewShowsComponent} from '../view-shows/view-shows.component';
 import {EventService} from '../../../events/services/event.service';
 import {ShowContestant} from '../../../events/models/showcontestant';
+import {ConfirmationDialogComponent} from '../../../../components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-owner-dashboard',
@@ -85,7 +86,17 @@ export class OwnerDashboardComponent implements OnInit {
   deleteContestant(con) {
     this.service.deleteContestant(con.id).subscribe();
 
-    window.location.reload();
+    this.dialog.open(ConfirmationDialogComponent, {
+      minWidth: '400px',
+      minHeight: 'auto',
+      maxHeight: '100vh',
+      maxWidth: '100vw',
+      position: {
+        top: '50px'
+      },
+      data: 'Deleted Successfully!'
+
+    });
   }
 
 }
