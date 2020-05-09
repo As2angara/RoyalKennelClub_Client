@@ -1,12 +1,13 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {Observable} from 'rxjs';
 import {Contestant} from '../../models/contestant';
 import {Breed} from '../../../breeds/models/breed';
 import {BreedServiceService} from '../../../breeds/services/breed-service.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {OwnerService} from '../../services/owner.service';
 import {tap} from 'rxjs/operators';
+import {ConfirmationDialogComponent} from '../../../../components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-edit-contestant',
@@ -19,17 +20,20 @@ export class EditContestantComponent implements OnInit {
   contestant: Contestant;
   contestantQ = {} as Contestant;
   breeds$: Observable<Breed[]>;
+  formSubmit: boolean;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private fb: FormBuilder,
               private ownerService: OwnerService,
-              private dialog: MatDialogRef<EditContestantComponent>) {
+              private dialogRef: MatDialogRef<EditContestantComponent>,
+              private dialog: MatDialog) {
 
+    this.formSubmit = false;
     this.breeds$ = this.data.breeds;
     this.contestant = this.data.contestant;
 
     this.editForm =  this.fb.group({
-      name: [''],
+      name: ['', Validators.required],
       breed: [''],
       gender: [''],
       rank: ['']
@@ -56,7 +60,18 @@ export class EditContestantComponent implements OnInit {
 
   }
 
+  checkError(control: string): boolean {
+    return this.editForm.get(control).hasError('required')
+      && this.formSubmit;
+
+  }
+
   onEditContestant() {
+
+    if (this.editForm.invalid) {
+      this.formSubmit = true;
+      return;
+    }
 
     // retrieve contestant name
     this.contestantQ.name = this.editForm.get('name').value;
@@ -82,11 +97,19 @@ export class EditContestantComponent implements OnInit {
 
     this.ownerService.editContestant(this.contestantQ).subscribe();
 
-    this.dialog.afterClosed().subscribe(result => {
-      window.location.reload();
+    this.dialog.open(ConfirmationDialogComponent, {
+      minWidth: '400px',
+      minHeight: 'auto',
+      maxHeight: '100vh',
+      maxWidth: '100vw',
+      position: {
+        top: '50px'
+      },
+      data: 'Edited Successfully!'
+
     });
 
-    this.dialog.close();
+    this.dialogRef.close();
   }
 
 }

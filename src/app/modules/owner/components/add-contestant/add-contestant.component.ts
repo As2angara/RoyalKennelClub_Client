@@ -75,6 +75,8 @@ export class AddContestantComponent implements OnInit {
       this.contestant.isSpecial = true;
     }
 
+    this.ownerService.addContestant(this.contestant).subscribe();
+
     this.dialog.open(ConfirmationDialogComponent, {
       minWidth: '400px',
       minHeight: 'auto',
@@ -87,7 +89,7 @@ export class AddContestantComponent implements OnInit {
 
     });
 
-    this.ownerService.addContestant(this.contestant).subscribe();
+
 
 
 

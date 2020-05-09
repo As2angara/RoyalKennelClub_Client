@@ -8,10 +8,13 @@
     </div>
     <input type="radio" value="{{show.id}}" formControlName="show">
     <label>{{show.type}} - {{show.date | date: 'mediumDate'}}</label>
-
   </div>
 
   <hr>
+  <div class = "align-center">
+    <mat-error *ngIf="checkError('show')">Please select a show to de-enroll from.</mat-error>
+  </div>
+
   <div class = "align-center">
     <button type="submit">De-Enroll</button>
   </div>
