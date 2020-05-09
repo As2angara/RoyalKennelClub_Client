@@ -4,7 +4,7 @@ import {RouterModule} from '@angular/router';
 import {BreedListComponent} from '../breeds/components/breed-list/breed-list.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { RegisterShowContestantComponent } from './components/register-show-contestant/register-show-contestant.component';
-import {MatDialogModule} from '@angular/material';
+import {MatDialogModule, MatFormFieldModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import { EventInfoComponent } from './components/event-info/event-info.component';
 
@@ -17,6 +17,7 @@ import { EventInfoComponent } from './components/event-info/event-info.component
     CommonModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     RouterModule.forChild([
       {
         path: '',

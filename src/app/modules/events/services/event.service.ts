@@ -29,8 +29,11 @@ export class EventService {
   }
 
   getShowContestant(con: ShowContestant): Observable<ShowContestant> {
-
     return this.http.get<ShowContestant>(`${this.url}/show-contestant/${con.showId}/${con.contestantId}`);
+  }
+
+  getAllShowContestants(): Observable<ShowContestant[]> {
+    return this.http.get<ShowContestant[]>(`${this.url}/show-contestant/`);
   }
 
   getShowContestantFullTable(): Observable<ShowContestantFull[]> {

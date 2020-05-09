@@ -3,13 +3,14 @@
 <form (ngSubmit)="onRegisterShowContestant()" [formGroup]="registerForm" >
 
   <h2>Select a show:</h2>
-
+  <mat-error *ngIf="checkError('show')">A show selection is required to register.</mat-error>
   <div *ngFor = "let show of shows$ | async" class = "show-select">
     <input type="radio" [value]="show.id" formControlName="show">
     <label >{{show.type}} - {{show.date | date: 'mediumDate'}}</label>
   </div>
 
   <h2>Select a contestant:</h2>
+  <mat-error *ngIf="checkError('contestant')">A contestant is required to register.</mat-error>
   <div id = "con-select-container">
     <div *ngFor = "let con of contestants$ | async" class = "con-select">
       <input type="radio" [value] = "con.id" formControlName = "contestant"><label class = "dog-name">{{con.name}}</label>
@@ -21,6 +22,7 @@
 
 
   <hr>
+
   <div class = "align-center">
     <button type="submit">Register</button>
   </div>

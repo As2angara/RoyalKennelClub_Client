@@ -10,6 +10,7 @@ import {MatDialog} from '@angular/material';
 export class ConfirmationDialogComponent implements OnInit {
 
   message: string;
+  reload: boolean;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private dialogRef: MatDialogRef<ConfirmationDialogComponent>,) {
@@ -22,6 +23,7 @@ export class ConfirmationDialogComponent implements OnInit {
       this.dialogRef.close();
 
     }, 1500);
+
 
     this.dialogRef.afterClosed().subscribe(result => {
       window.location.reload();
