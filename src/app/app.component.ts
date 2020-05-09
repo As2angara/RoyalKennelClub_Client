@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RoyalKennelClubClient';
+  isLoggedIn: boolean
+
+  constructor() {
+    this.isLoggedIn = true;
+  }
+
 }

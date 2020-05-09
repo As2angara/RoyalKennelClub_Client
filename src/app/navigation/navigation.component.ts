@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -8,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
 
   isChosen: string;
+  @Input() isLoggedIn: boolean;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.isChosen = 'home';
   }
 
-  chosen(s) {
-    this.isChosen = s;
+  ngOnInit() {
+    this.isChosen = localStorage.getItem('path');
+  }
+
+  chosen(path) {
+    localStorage.setItem('path', path);
+    this.isChosen = path;
   }
 }

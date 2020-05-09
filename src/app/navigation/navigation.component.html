@@ -8,9 +8,16 @@
     <a [routerLink]="['/breeds']" (click) = "chosen('breeds')"><h1 [ngClass] = "{'chosen': isChosen === 'breeds'}" >Breeds</h1></a>
 
     <hr>
-    <a [routerLink]="['/owner']" (click) = "chosen('profile')"><h1 [ngClass] = "{'chosen': isChosen === 'profile'}" >Profile</h1></a>
-    <a [routerLink]="['/events']" (click) = "chosen('events')"><h1 [ngClass] = "{'chosen': isChosen === 'events'}" >Events</h1></a>
-    <a [routerLink]="['/']" (click) = "chosen('logout')"><h1 [ngClass] = "{'chosen': isChosen === 'logout'}" >Logout</h1></a>
+    <div *ngIf = "isLoggedIn else notLoggedIn">
+      <a [routerLink]="['/owner']" (click) = "chosen('profile')"><h1 [ngClass] = "{'chosen': isChosen === 'profile'}" >Profile</h1></a>
+      <a [routerLink]="['/events']" (click) = "chosen('events')"><h1 [ngClass] = "{'chosen': isChosen === 'events'}" >Events</h1></a>
+      <a [routerLink]="['/']" (click) = "chosen('logout')"><h1 [ngClass] = "{'chosen': isChosen === 'logout'}" >Logout</h1></a>
+    </div>
+
+    <ng-template #notLoggedIn>
+      <a [routerLink]="['/login']" (click) = "chosen('login')"><h1 [ngClass] = "{'chosen': isChosen === 'login'}" >Login</h1></a>
+    </ng-template>
+
   </div>
 
 
