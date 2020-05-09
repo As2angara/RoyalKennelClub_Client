@@ -67,45 +67,20 @@ export class RegisterShowContestantComponent implements OnInit {
       id: 0
     };
 
-    // this.eventService.getAllShowContestants().pipe(
-    //   map( contestants => contestants.map( contestant => {
-    //
-    //     if (this.registerForm.get('show').value === contestant.showId &&
-    //       this.registerForm.get('contestant').value === contestant.contestantId) {
-    //
-    //       this.dialog.open(ConfirmationDialogComponent, {
-    //         minWidth: '400px',
-    //         minHeight: 'auto',
-    //         maxHeight: '100vh',
-    //         maxWidth: '100vw',
-    //         position: {
-    //           top: '50px'
-    //         },
-    //         data: 'This contestant is already enrolled in this show.'
-    //
-    //       });
-    //
-    //
-    //     } else {
-    //         // this.eventService.addShowContestant(this.showContestant).subscribe();
-    //
-    //        this.dialog.open(ConfirmationDialogComponent, {
-    //          minWidth: '400px',
-    //          minHeight: 'auto',
-    //          maxHeight: '100vh',
-    //          maxWidth: '100vw',
-    //          position: {
-    //            top: '50px'
-    //          },
-    //          data: 'Registered Successfully!'
-    //
-    //        });
-    //      }
-    //
-    //   }))
-    // ).subscribe();
 
+    this.eventService.addShowContestant(this.showContestant).subscribe();
 
+    this.dialog.open(ConfirmationDialogComponent, {
+      minWidth: '400px',
+      minHeight: 'auto',
+      maxHeight: '100vh',
+      maxWidth: '100vw',
+      position: {
+        top: '50px'
+      },
+      data: 'Registered Successfully!'
+
+    });
 
 
 
