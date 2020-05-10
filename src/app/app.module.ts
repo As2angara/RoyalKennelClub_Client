@@ -8,19 +8,23 @@ import {HttpClientModule} from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import {MatDialogModule} from '@angular/material';
+import {LazyLoadImageModule} from 'ng-lazyload-image';
+import { ImageComponentComponent } from './components/image-component/image-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ImageComponentComponent
   ],
   entryComponents: [ConfirmationDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NoopAnimationsModule, MatDialogModule
+    NoopAnimationsModule, MatDialogModule,
+    LazyLoadImageModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

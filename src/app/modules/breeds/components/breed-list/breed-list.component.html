@@ -17,7 +17,8 @@
 
   <div id = "breed-card-container">
     <div *ngFor = "let breed of breeds$ | async" id = "breed-card">
-      <img src="{{breed.pic_url}}" alt="">
+<!--      <img src="{{breed.pic_url}}" alt="">-->
+      <img   [lazyLoad]="breed.pic_url" >
 
       <div id = "breed-card__inner">
         <h1>{{breed.name}}</h1>
