@@ -1,0 +1,28 @@
+@mixin contentSize($contentWidth) {
+
+  @if $contentWidth == 370px {
+    width: calc(100vw - 370px);
+    margin-left: 370px;
+    padding: 50px;
+  }
+
+  @if $contentWidth == 70px {
+    width: calc(100vw - 70px);
+    margin-left: 70px;
+    padding: 50px 100px;
+  }
+
+  height: 100vh;
+  overflow: scroll;
+
+  @include respond(phone) {
+    width: 100vw;
+    margin-left: 0;
+  }
+}
+
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
