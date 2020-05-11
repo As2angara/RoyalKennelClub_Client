@@ -39,4 +39,49 @@ nav {
   color: #fffcffff;
 }
 
+@media (max-width: 1024px) {
+
+  nav {
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    position: fixed;
+    z-index: 10;
+
+    #img-cont img{
+
+      height: 60px;
+      width: 60px;
+
+    }
+
+    hr {
+      display: none;
+    }
+  }
+
+
+  #nav-inner {
+    display: flex;
+    padding: 0;
+
+    div {
+      display: flex;
+
+      a {
+        margin-left: 20px;
+      }
+
+    }
+
+  }
+
+  #copyright {
+    display: none;
+  }
+
+}
+
 

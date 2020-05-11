@@ -4,8 +4,10 @@
     <img src="../../assets/images/logo.png" alt="" height="200" width="200">
   </div>
   <div id ="nav-inner">
-    <a [routerLink]="['/']" (click) = "chosen('home')"><h1 [ngClass] = "{'chosen': isChosen === 'home'}" >Home</h1></a>
-    <a [routerLink]="['/breeds']" (click) = "chosen('breeds')"><h1 [ngClass] = "{'chosen': isChosen === 'breeds'}" >Breeds</h1></a>
+    <div>
+      <a [routerLink]="['/']" (click) = "chosen('home')"><h1 [ngClass] = "{'chosen': isChosen === 'home'}" >Home</h1></a>
+      <a [routerLink]="['/breeds']" (click) = "chosen('breeds')"><h1 [ngClass] = "{'chosen': isChosen === 'breeds'}" >Breeds</h1></a>
+    </div>
 
     <hr>
     <div *ngIf = "isLoggedIn else notLoggedIn">

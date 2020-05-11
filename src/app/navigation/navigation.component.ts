@@ -7,11 +7,10 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  isChosen: string;
+  @Input() isChosen: string;
   @Input() isLoggedIn: boolean;
 
   constructor() {
-    this.isChosen = 'home';
   }
 
   ngOnInit() {

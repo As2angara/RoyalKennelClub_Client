@@ -10,13 +10,15 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 import {MatDialogModule} from '@angular/material';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
 import { ImageComponentComponent } from './components/image-component/image-component.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     ConfirmationDialogComponent,
-    ImageComponentComponent
+    ImageComponentComponent,
+    FooterComponent
   ],
   entryComponents: [ConfirmationDialogComponent],
   imports: [
