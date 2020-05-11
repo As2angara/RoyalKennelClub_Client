@@ -3,6 +3,11 @@
   <div id ="img-cont">
     <img src="../../assets/images/logo.png" alt="" height="200" width="200">
   </div>
+
+  <div id = "bars-container">
+    <i class="fas fa-bars"></i>
+  </div>
+
   <div id ="nav-inner">
     <div>
       <a [routerLink]="['/']" (click) = "chosen('home')"><h1 [ngClass] = "{'chosen': isChosen === 'home'}" >Home</h1></a>
