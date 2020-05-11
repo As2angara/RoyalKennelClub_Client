@@ -5,10 +5,14 @@
   </div>
 
   <div id = "bars-container">
-    <i class="fas fa-bars"></i>
+    <i class="fas fa-bars" *ngIf = "isBars else close" (click) = "toggleNav()"></i>
+
+    <ng-template #close>
+      <i class="fas fa-times" (click) = "toggleNav()"></i>
+    </ng-template>
   </div>
 
-  <div id ="nav-inner">
+  <div id ="nav-inner" #navInner>
     <div>
       <a [routerLink]="['/']" (click) = "chosen('home')"><h1 [ngClass] = "{'chosen': isChosen === 'home'}" >Home</h1></a>
       <a [routerLink]="['/breeds']" (click) = "chosen('breeds')"><h1 [ngClass] = "{'chosen': isChosen === 'breeds'}" >Breeds</h1></a>

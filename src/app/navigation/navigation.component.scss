@@ -113,6 +113,24 @@ nav {
 
   #nav-inner {
     display: none;
+    width: 100vw;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    background-color: #50514fff;
+    padding-left: 30px;
+
+
+    div {
+      display: block;
+
+      a {
+        margin-left: 0;
+      }
+
+    }
+
+
   }
 
 }
