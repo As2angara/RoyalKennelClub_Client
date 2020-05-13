@@ -10,12 +10,13 @@ import {map} from 'rxjs/operators';
 export class BreedServiceService {
 
   private url = 'https://royalkennelclub.herokuapp.com/breeds';
+  private filePath = '../../../../assets/data/breeds.json';
 
   constructor(private http: HttpClient ) { }
 
   getBreeds(): Observable<Breed[]> {
 
-    return this.http.get<Breed[]>(this.url);
+    return this.http.get<Breed[]>(this.filePath);
   }
 
 
