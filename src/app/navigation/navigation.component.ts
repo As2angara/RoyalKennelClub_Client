@@ -17,11 +17,11 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isChosen = localStorage.getItem('path');
+    this.isChosen = sessionStorage.getItem('path');
   }
 
   chosen(path) {
-    localStorage.setItem('path', path);
+    sessionStorage.setItem('path', path);
     this.isChosen = path;
   }
 
