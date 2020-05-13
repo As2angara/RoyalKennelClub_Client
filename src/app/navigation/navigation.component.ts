@@ -23,6 +23,11 @@ export class NavigationComponent implements OnInit {
   chosen(path) {
     sessionStorage.setItem('path', path);
     this.isChosen = path;
+
+    if (window.innerWidth <= 720) {
+      this.navInner.nativeElement.style.display = 'none';
+      this.isBars = true;
+    }
   }
 
   toggleNav() {
