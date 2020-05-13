@@ -30,3 +30,20 @@
     margin-left: 20px;
   }
 }
+
+@media (max-width: 720px) {
+
+  #show-card {
+    padding: 0;
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: x-large;
+  }
+
+  table {
+    margin: auto;
+  }
+}

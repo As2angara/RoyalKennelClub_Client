@@ -39,6 +39,9 @@ export class ViewShowsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (window.innerWidth < 400) {
+      this.dialogRef.updateSize('100vw', 'auto');
+    }
   }
 
   checkError(control: string): boolean {

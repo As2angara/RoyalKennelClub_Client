@@ -41,8 +41,8 @@ export class AddContestantComponent implements OnInit {
 
   ngOnInit() {
 
-    if (window.innerWidth < 720) {
-      this.dialogRef.updateSize('100vw', '80vh');
+    if (window.innerWidth < 400) {
+      this.dialogRef.updateSize('100vw', 'auto');
     }
   }
 

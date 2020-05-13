@@ -39,4 +39,18 @@
   }
 }
 
+@media (max-width: 720px) {
 
+  .form-label {
+    padding: 10px 30px;
+    font-size: 1.3rem;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  table {
+    margin: auto;
+  }
+}

@@ -43,6 +43,10 @@ export class EditContestantComponent implements OnInit {
 
   ngOnInit() {
 
+    if (window.innerWidth < 400) {
+      this.dialogRef.updateSize('100vw', 'auto');
+    }
+
     this.editForm.get('name').patchValue(this.contestant.name);
     this.editForm.get('breed').patchValue(this.contestant.breed);
 
