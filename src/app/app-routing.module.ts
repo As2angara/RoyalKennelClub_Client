@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {EventInfoComponent} from './modules/events/components/event-info/event-info.component';
+import {FooterComponent} from './components/footer/footer.component';
 
 
 const routes: Routes = [

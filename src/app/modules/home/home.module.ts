@@ -7,14 +7,14 @@ import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomeComponent
-      }
-    ])
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: HomeComponent
+            }
+        ])
+    ]
 })
 export class HomeModule { }

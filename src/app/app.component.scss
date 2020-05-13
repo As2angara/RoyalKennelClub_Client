@@ -1,12 +1,12 @@
 section {
   display: flex;
-  position: relative;
 }
 
 @media (max-width: 1024px) {
 
   section {
     display: block;
+    height: calc(100vh - 60px);
   }
 
 

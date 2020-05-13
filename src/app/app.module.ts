@@ -13,22 +13,22 @@ import { ImageComponentComponent } from './components/image-component/image-comp
 import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-    ConfirmationDialogComponent,
-    ImageComponentComponent,
-    FooterComponent
-  ],
-  entryComponents: [ConfirmationDialogComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    NoopAnimationsModule, MatDialogModule,
-    LazyLoadImageModule
-  ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavigationComponent,
+        ConfirmationDialogComponent,
+        ImageComponentComponent,
+        FooterComponent
+    ],
+    entryComponents: [ConfirmationDialogComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        NoopAnimationsModule, MatDialogModule,
+        LazyLoadImageModule
+    ],
+    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
