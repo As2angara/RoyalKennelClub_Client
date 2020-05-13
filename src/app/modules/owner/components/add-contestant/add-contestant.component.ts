@@ -40,6 +40,10 @@ export class AddContestantComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    if (window.innerWidth < 720) {
+      this.dialogRef.updateSize('100vw', '80vh');
+    }
   }
 
   checkError(control: string): boolean {
@@ -88,10 +92,6 @@ export class AddContestantComponent implements OnInit {
       data: 'Registered Successfully!'
 
     });
-
-
-
-
 
     this.dialogRef.close();
 
