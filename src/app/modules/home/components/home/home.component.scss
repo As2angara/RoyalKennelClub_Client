@@ -81,4 +81,18 @@ footer {
   }
 }
 
+@media (max-width: 720px) {
+
+  #home-title {
+
+    h1 {
+      font-size: 3rem;
+    }
+    p{
+      font-size: 1rem;
+    }
+  }
+
+}
+
 
