@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -33,5 +33,20 @@ export class NavigationComponent implements OnInit {
       this.navInner.nativeElement.style.display = 'none';
       this.isBars = true;
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+
+    if (window.innerWidth > 720) {
+      this.navInner.nativeElement.style.display = 'flex';
+      this.isBars = true;
+
+    } else {
+      this.navInner.nativeElement.style.display = 'none';
+    }
+
+
+
   }
 }
