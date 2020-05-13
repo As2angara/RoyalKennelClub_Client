@@ -43,7 +43,11 @@ export class NavigationComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
 
-    if (window.innerWidth > 720) {
+    if (window.innerWidth > 1024) {
+      this.navInner.nativeElement.style.display = 'block';
+
+    } else if (window.innerWidth > 720) {
+
       this.navInner.nativeElement.style.display = 'flex';
       this.isBars = true;
 

@@ -26,9 +26,10 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: 100vh;
+  height: auto;
   width: calc(100% - 50px);
   margin: auto;
+  padding-bottom: 50px;
 }
 
 #breed-card {
@@ -58,6 +59,50 @@ section {
     p{
       margin-bottom: 0;
 
+    }
+
+  }
+}
+
+footer {
+  width: 100%;
+  display: none;
+  padding: 30px;
+  text-align: center;
+  background-color: #cbd4c2ff;
+  color: #50514fff;
+
+}
+
+@media (max-width: 1024px) {
+
+  section {
+    width: 100vw;
+    padding: 100px 30px 0;
+  }
+
+  #breeds-title {
+    width: 100%;
+  }
+
+  #breed-card-container {
+    width: 100%;
+  }
+
+  footer {
+    display: block;
+  }
+
+}
+
+@media (max-width: 720px) {
+
+  #breeds-title {
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1rem;
     }
 
   }
