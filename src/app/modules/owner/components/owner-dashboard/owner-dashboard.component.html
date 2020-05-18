@@ -35,7 +35,7 @@
     <div id="contestant-card" *ngFor ="let con of contestants$ | async">
 
       <div *ngFor = "let breed of breeds$ | async" >
-        <img *ngIf = "breed.name === con.breed" src ="{{breed.pic_url}}" alt="">
+        <img *ngIf = "breed.name === con.breed" [lazyLoad] ="breed.pic_url" alt="">
       </div>
 
       <div id="contestant-card__inner">
